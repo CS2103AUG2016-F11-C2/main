@@ -92,6 +92,11 @@ public class ModelManager extends ComponentManager implements Model {
     @Override
     public void updateFilteredTaskList(Set<String> keywords){
         updateFilteredTaskList(new PredicateExpression(new DetailQualifier(keywords)));
+    
+    
+    @Override
+    public void updateFilteredListShowUndoneTask(){
+    	filteredTasks.setPredicate(toDoList.getTasks().checkDone() != true);
     }
 
     private void updateFilteredTaskList(Expression expression) {
