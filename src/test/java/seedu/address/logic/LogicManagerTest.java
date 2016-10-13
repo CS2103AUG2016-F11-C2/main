@@ -20,6 +20,9 @@ import seedu.address.model.tag.Tag;
 import seedu.address.model.tag.UniqueTagList;
 import seedu.address.storage.StorageManager;
 
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -39,6 +42,7 @@ public class LogicManagerTest {
 
     private Model model;
     private Logic logic;
+    private Clock clock; 
 
     //These are for checking the correctness of the events raised
     private ReadOnlyToDoList latestSavedToDoList;
@@ -144,27 +148,25 @@ public class LogicManagerTest {
 
         assertCommandBehavior("clear", ClearCommand.MESSAGE_SUCCESS, new ToDoList(), Collections.emptyList());
     }
-
+    
 
     @Test
     public void execute_add_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
         assertCommandBehavior(
-                "add wrong args wrong args", expectedMessage);
+                "add Task by 123 at 11.00 /high", expectedMessage);
         assertCommandBehavior(
-                "add Valid Task tmr t/11am p/high", expectedMessage);
+                "add Task by 2016-10-14 at abc /high", expectedMessage);
         assertCommandBehavior(
-                "add Valid Task d/tmr 11am p/high", expectedMessage);
-        assertCommandBehavior(
-                "add Valid Task d/tmr t/11am high", expectedMessage);
+                "add Task by 2016-10-14 at 11.00 /h", expectedMessage);
     }
 
     @Test
     public void execute_add_invalidTaskData() throws Exception {
         assertCommandBehavior(
-                "add []\\[;] p/12345 e/valid@e.mail a/High", Detail.MESSAGE_DETAIL_CONSTRAINTS);
+                "add Task by 2016-10-14 at 11.00 high", Priority.MESSAGE_PRIORITY_CONSTRAINTS);
         assertCommandBehavior(
-                "add Valid Name p/12345 e/valid@e.mail a/High t/invalid_-[.tag", Tag.MESSAGE_TAG_CONSTRAINTS);
+                "add Task by 2016-10-14 at 11.00 /high -[.tag", Tag.MESSAGE_TAG_CONSTRAINTS);
 
     }
 
@@ -380,9 +382,9 @@ public class LogicManagerTest {
 
         Task adam() throws Exception {
             Detail detail = new Detail("Complete CS2103 tutorial");
-            DueByDate dueByDate = new DueByDate("tmr");
-            DueByTime dueByTime = new DueByTime("11am");
-            Priority priority = new Priority("/High");
+            DueByDate dueByDate = new DueByDate(LocalDate.now(clock));
+            DueByTime dueByTime = new DueByTime(LocalTime.now(clock));
+            Priority priority = new Priority("/high");
             Tag tag1 = new Tag("tag1");
             Tag tag2 = new Tag("tag2");
             UniqueTagList tags = new UniqueTagList(tag1, tag2);
@@ -399,9 +401,9 @@ public class LogicManagerTest {
         Task generateTask(int seed) throws Exception {
             return new Task(
                     new Detail("Task " + seed),
-                    new DueByDate("Date " + seed),
-                    new DueByTime("Time " + seed),
-                    new Priority("Priority " + seed),
+                    new DueByDate(LocalDate.now(clock)),
+                    new DueByTime(LocalTime.now(clock)),
+                    new Priority("/low"),
                     new UniqueTagList(new Tag("tag" + Math.abs(seed)), new Tag("tag" + Math.abs(seed + 1)))
             );
         }
@@ -413,9 +415,9 @@ public class LogicManagerTest {
             cmd.append("add ");
 
             cmd.append(t.getDetail().toString());
-            cmd.append(" d/").append(t.getDueByDate());
-            cmd.append(" t/").append(t.getDueByTime());
-            cmd.append(" p/").append(t.getPriority());
+            cmd.append(" ").append(t.getDueByDate());
+            cmd.append(" ").append(t.getDueByTime());
+            cmd.append(" /").append(t.getPriority());
 
             UniqueTagList tags = t.getTags();
             for(Tag tag: tags){
@@ -498,8 +500,8 @@ public class LogicManagerTest {
         Task generateTaskWithName(String detail) throws Exception {
             return new Task(
                     new Detail(detail),
-                    new DueByDate("tmr"),
-                    new DueByTime("3pm"),
+                    new DueByDate(LocalDate.now(clock)),
+                    new DueByTime(LocalTime.now(clock)),
                     new Priority("/High"),
                     new UniqueTagList(new Tag("tag"))
             );

@@ -1,10 +1,7 @@
 package seedu.address.model.task;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
 
-import com.joestelmach.natty.DateGroup;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 
@@ -17,14 +14,14 @@ public class DueByDate {
 //    public static final String MESSAGE_DUEBYDATE_CONSTRAINTS = "Due by? You should enter a day, or a date.";
 //    public static final String DUEBYDATE_VALIDATION_REGEX = ".*";
 
-    public final String value;
+    public final LocalDate value;
 
     /**
      * Validates given Due date.
      *
      * @throws IllegalValueException if given due date string is invalid.
      */
-    public DueByDate(String dueByDate) {
+    public DueByDate(LocalDate dueByDate) {
         assert dueByDate != null;
         this.value = dueByDate;
     }
