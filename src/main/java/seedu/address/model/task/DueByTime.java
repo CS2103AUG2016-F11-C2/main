@@ -16,16 +16,17 @@ public class DueByTime {
     public static final String MESSAGE_DUEBYTIME_CONSTRAINTS = "Due at what time? You should type in a time in format HHMM";
 //    public static final String DUEBYTIME_VALIDATION_REGEX = ".*";
 
-    public final LocalTime value;
+    public final String value;
 
     /**
      * Validates given dueByTime.
      *
      * @throws IllegalValueException if given dueByTime string is invalid.
      */
-    public DueByTime(LocalTime dueByTime) throws IllegalValueException {
+    public DueByTime(String dueByTime) throws IllegalValueException {
         assert dueByTime != null;
-        this.value = dueByTime.truncatedTo(ChronoUnit.MINUTES);
+        this.value = dueByTime;
+        //this.value = dueByTime.truncatedTo(ChronoUnit.MINUTES);
     }
 
     @Override
