@@ -88,5 +88,14 @@ public class TestTask implements ReadOnlyTask {
         sb.append("/" + this.getPriority().value + " ");
         this.getTags().getInternalList().stream().forEach(s -> sb.append("-" + s.tagName + " "));
         return sb.toString();
+    }    
+    public String getEditCommand() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getDetail().details + " ");
+        sb.append(this.getDueByDate().toString() + " ");
+        sb.append(this.getDueByTime().toString() + " ");
+        sb.append("/" + this.getPriority().value + " ");
+        this.getTags().getInternalList().stream().forEach(s -> sb.append("-" + s.tagName + " "));
+        return sb.toString();
     }
 }
