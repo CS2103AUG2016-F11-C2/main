@@ -97,10 +97,10 @@ public class MainParser {
 
         case FindCommand.COMMAND_WORD:
             return prepareFind(arguments);
-
-        case ListCommand.COMMAND_WORD:        	
+                	
         case ListCommand.COMMAND_WORD_SHORT_ALL:
         	return prepareList(arguments);
+        	
         case ListCommand.COMMAND_WORD_SHORT_DONE:
             return prepareList("--done");
             
@@ -125,6 +125,20 @@ public class MainParser {
         String[] splittedArgs = getCleanString(args).split(" ");
         reducedArgs = extractDueByDateAndTime(args);
         LocalDateTime dt;
+        
+        //check for empty add
+        if(args.isEmpty()){
+            return new IncorrectCommand(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }
+        
+        // check for add 1-23
+        if(extractDetail(reducedArgs).isEmpty()){
+            return new IncorrectCommand(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }        
+        
+        
         if (datesAndTimes.size() != 0)
         	dt = datesAndTimes.get(0);
         else
@@ -141,7 +155,7 @@ public class MainParser {
     				extractPriority(splittedArgs),
     				getTagsFromArgs(splittedArgs));
     	} catch (IllegalValueException ive) {
-    		return new IncorrectCommand(ive.getMessage());
+    		return new IncorrectCommand(ive.getMessage());		
     	}
     }
     
@@ -320,7 +334,7 @@ public class MainParser {
      * 
      * @author A0139661Y
      */
-    private String extractDetail(String reducedArgs) {
+    private String extractDetail(String reducedArgs) {    	
 		return getCleanString(reducedArgs.replaceAll("\\sby\\s$", " ")
 											.replaceAll("\\son\\s$", " ")
 											.replaceAll("\\sat\\s$", " ")
