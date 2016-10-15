@@ -37,7 +37,7 @@ public class MainParser {
     private static final Pattern KEYWORDS_ARGS_FORMAT =
             Pattern.compile("(?<keywords>\\S+(?:\\s+\\S+)*)"); // one or more keywords separated by whitespace
 
-	private static final String MESSAGE_INVALID_PRIORITY = "Priority is either high, medium or low. Please try again.";
+	//private static final String MESSAGE_INVALID_PRIORITY = "Priority is either high, medium or low. Please try again.";
 	
 	public static final String NO_DATE_DEFAULT = LocalDate.MIN.toString();	// All floating tasks are giving this date.
 	public static final String NO_TIME_DEFAULT = LocalTime.MAX.toString();	// All timeless tasks are given this time.
@@ -352,18 +352,41 @@ public class MainParser {
      */ 
     private String extractPriority(String[] splittedArgs) {
     	List<String> rawArgs = Arrays.asList(splittedArgs);
-    	for (String rawArg : rawArgs) {
-    		if (rawArg.toLowerCase().startsWith("/")) {
-    			switch(rawArg.replace("/", "")) {
-    			case Priority.HIGH:
-    				return Priority.HIGH;
-    			case Priority.MEDIUM:
-    				return Priority.MEDIUM;
-    			case Priority.LOW:
-    				return Priority.LOW;
-    			}
-    		}
-    	}
+    	ArrayList<String> priorities = new ArrayList<String>();
+   	 	int[] priorityInt = new int[rawArgs.size()];
+   	 	
+   	 	for(String rawArg : rawArgs){
+   	 		if (rawArg.toLowerCase().startsWith("/")) {
+   	 			priorities.add(rawArg.toLowerCase().replace("/", ""));
+   	 		}
+   	 	}
+   	 	int i = 0;
+   	 	for(String priority : priorities){
+   	 		if(priority.equals(Priority.HIGH))
+   	 			priorityInt[i]=3;
+   	 		else if(priority.equals(Priority.MEDIUM))
+   	 			priorityInt[i]=2;
+   	 		else if(priority.equals(Priority.LOW))
+   	 			priorityInt[i]=1;
+   	 		else
+   	 			priorityInt[i]=0;
+   	 		i++;
+   	 	}
+   	 	
+   	 	Arrays.sort(priorityInt);
+	 	int highestPriority = priorityInt[priorityInt.length - 1];
+	 	
+	 	switch(highestPriority){
+		 	case 3:
+				return Priority.HIGH;
+			case 2:
+				return Priority.MEDIUM;
+			case 1:
+				return Priority.LOW;
+			case 0:
+				return "Unknown";	
+	 	}
+	 
     	return Priority.LOW;
     }
     
