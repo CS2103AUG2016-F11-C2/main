@@ -28,8 +28,8 @@ public class MainParser {
     /**
      * Used for initial separation of command word and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-
+	private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
+    private static final Pattern LIST_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+(?:\\s+\\S+)*)(?<arguments>.*)");
     private static final Pattern TASK_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>.+)");
     
     private static final Pattern TASK_LOOSE_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>[^ ]+) (.*)");
@@ -67,14 +67,27 @@ public class MainParser {
      * @return the command based on the user input
      */
     public Command parseCommand(String userInput) {
-        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
-        if (!matcher.matches()) {
-            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
-        }
-
-        final String commandWord = matcher.group("commandWord");
-        String arguments = matcher.group("arguments");
-        arguments = getCleanString(arguments);
+    	String[] splitedInput = userInput.split("\\s+");
+    	String command_word, commandWord, arguments; 
+    	if(splitedInput.length == 2 && ((splitedInput[1].equals("done")) || (splitedInput[1].equals("all")))){
+    		Matcher matcher = LIST_COMMAND_FORMAT.matcher(userInput.trim());
+            if (!matcher.matches()) {
+                return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+            }
+            command_word = matcher.group("commandWord");
+            arguments = matcher.group("arguments");
+            arguments = getCleanString(arguments);
+            commandWord = command_word.replaceAll("\\p{Z}","");
+    	}
+    	else{
+    		Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
+            if (!matcher.matches()) {
+                return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+            }
+            commandWord = matcher.group("commandWord");
+            arguments = matcher.group("arguments");
+            arguments = getCleanString(arguments);
+    	}
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
@@ -97,10 +110,12 @@ public class MainParser {
 
         case FindCommand.COMMAND_WORD:
             return prepareFind(arguments);
-                	
+            
+        case ListCommand.COMMAND_WORD_ALL:        	
         case ListCommand.COMMAND_WORD_SHORT_ALL:
         	return prepareList(arguments);
         	
+        case ListCommand.COMMAND_WORD_DONE:	
         case ListCommand.COMMAND_WORD_SHORT_DONE:
             return prepareList("--done");
             
@@ -360,6 +375,9 @@ public class MainParser {
    	 			priorities.add(rawArg.toLowerCase().replace("/", ""));
    	 		}
    	 	}
+   	 	if (priorities.isEmpty())
+   	 		return Priority.LOW;
+   	
    	 	int i = 0;
    	 	for(String priority : priorities){
    	 		if(priority.equals(Priority.HIGH))
