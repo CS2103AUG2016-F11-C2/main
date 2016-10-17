@@ -28,8 +28,8 @@ public class MainParser {
     /**
      * Used for initial separation of command word and args.
      */
-    private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
-
+	private static final Pattern BASIC_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+)(?<arguments>.*)");
+    private static final Pattern LIST_COMMAND_FORMAT = Pattern.compile("(?<commandWord>\\S+(?:\\s+\\S+)*)(?<arguments>.*)");
     private static final Pattern TASK_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>.+)");
     
     private static final Pattern TASK_LOOSE_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>[^ ]+) (.*)");
@@ -37,7 +37,7 @@ public class MainParser {
     private static final Pattern KEYWORDS_ARGS_FORMAT =
             Pattern.compile("(?<keywords>\\S+(?:\\s+\\S+)*)"); // one or more keywords separated by whitespace
 
-	private static final String MESSAGE_INVALID_PRIORITY = "Priority is either high, medium or low. Please try again.";
+	//private static final String MESSAGE_INVALID_PRIORITY = "Priority is either high, medium or low. Please try again.";
 	
 	public static final String NO_DATE_DEFAULT = LocalDate.MIN.toString();	// All floating tasks are giving this date.
 	public static final String NO_TIME_DEFAULT = LocalTime.MAX.toString();	// All timeless tasks are given this time.
@@ -67,14 +67,27 @@ public class MainParser {
      * @return the command based on the user input
      */
     public Command parseCommand(String userInput) {
-        final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
-        if (!matcher.matches()) {
-            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
-        }
-
-        final String commandWord = matcher.group("commandWord");
-        String arguments = matcher.group("arguments");
-        arguments = getCleanString(arguments);
+    	String[] splitedInput = userInput.split("\\s+");
+    	String command_word, commandWord, arguments; 
+    	if(splitedInput.length == 2 && ((splitedInput[1].equals("done")) || (splitedInput[1].equals("all")))){
+    		Matcher matcher = LIST_COMMAND_FORMAT.matcher(userInput.trim());
+            if (!matcher.matches()) {
+                return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+            }
+            command_word = matcher.group("commandWord");
+            arguments = matcher.group("arguments");
+            arguments = getCleanString(arguments);
+            commandWord = command_word.replaceAll("\\p{Z}","");
+    	}
+    	else{
+    		Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
+            if (!matcher.matches()) {
+                return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+            }
+            commandWord = matcher.group("commandWord");
+            arguments = matcher.group("arguments");
+            arguments = getCleanString(arguments);
+    	}
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
@@ -97,10 +110,12 @@ public class MainParser {
 
         case FindCommand.COMMAND_WORD:
             return prepareFind(arguments);
-
-        case ListCommand.COMMAND_WORD:        	
+            
+        case ListCommand.COMMAND_WORD_ALL:        	
         case ListCommand.COMMAND_WORD_SHORT_ALL:
         	return prepareList(arguments);
+        	
+        case ListCommand.COMMAND_WORD_DONE:	
         case ListCommand.COMMAND_WORD_SHORT_DONE:
             return prepareList("--done");
             
@@ -125,6 +140,20 @@ public class MainParser {
         String[] splittedArgs = getCleanString(args).split(" ");
         reducedArgs = extractDueByDateAndTime(args);
         LocalDateTime dt;
+        
+        //check for empty add
+        if(args.isEmpty()){
+            return new IncorrectCommand(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }
+        
+        // check for add 1-23
+        if(extractDetail(reducedArgs).isEmpty()){
+            return new IncorrectCommand(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }        
+        
+        
         if (datesAndTimes.size() != 0)
         	dt = datesAndTimes.get(0);
         else
@@ -141,7 +170,7 @@ public class MainParser {
     				extractPriority(splittedArgs),
     				getTagsFromArgs(splittedArgs));
     	} catch (IllegalValueException ive) {
-    		return new IncorrectCommand(ive.getMessage());
+    		return new IncorrectCommand(ive.getMessage());		
     	}
     }
     
@@ -320,7 +349,7 @@ public class MainParser {
      * 
      * @author A0139661Y
      */
-    private String extractDetail(String reducedArgs) {
+    private String extractDetail(String reducedArgs) {    	
 		return getCleanString(reducedArgs.replaceAll("\\sby\\s$", " ")
 											.replaceAll("\\son\\s$", " ")
 											.replaceAll("\\sat\\s$", " ")
@@ -338,18 +367,44 @@ public class MainParser {
      */ 
     private String extractPriority(String[] splittedArgs) {
     	List<String> rawArgs = Arrays.asList(splittedArgs);
-    	for (String rawArg : rawArgs) {
-    		if (rawArg.toLowerCase().startsWith("/")) {
-    			switch(rawArg.replace("/", "")) {
-    			case Priority.HIGH:
-    				return Priority.HIGH;
-    			case Priority.MEDIUM:
-    				return Priority.MEDIUM;
-    			case Priority.LOW:
-    				return Priority.LOW;
-    			}
-    		}
-    	}
+    	ArrayList<String> priorities = new ArrayList<String>();
+   	 	int[] priorityInt = new int[rawArgs.size()];
+   	 	
+   	 	for(String rawArg : rawArgs){
+   	 		if (rawArg.toLowerCase().startsWith("/")) {
+   	 			priorities.add(rawArg.toLowerCase().replace("/", ""));
+   	 		}
+   	 	}
+   	 	if (priorities.isEmpty())
+   	 		return Priority.LOW;
+   	
+   	 	int i = 0;
+   	 	for(String priority : priorities){
+   	 		if(priority.equals(Priority.HIGH))
+   	 			priorityInt[i]=3;
+   	 		else if(priority.equals(Priority.MEDIUM))
+   	 			priorityInt[i]=2;
+   	 		else if(priority.equals(Priority.LOW))
+   	 			priorityInt[i]=1;
+   	 		else
+   	 			priorityInt[i]=0;
+   	 		i++;
+   	 	}
+   	 	
+   	 	Arrays.sort(priorityInt);
+	 	int highestPriority = priorityInt[priorityInt.length - 1];
+	 	
+	 	switch(highestPriority){
+		 	case 3:
+				return Priority.HIGH;
+			case 2:
+				return Priority.MEDIUM;
+			case 1:
+				return Priority.LOW;
+			case 0:
+				return "Unknown";	
+	 	}
+	 
     	return Priority.LOW;
     }
     

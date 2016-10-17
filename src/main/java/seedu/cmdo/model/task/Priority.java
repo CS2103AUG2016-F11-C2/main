@@ -9,7 +9,7 @@ import seedu.cmdo.commons.exceptions.IllegalValueException;
  */
 public class Priority {
     
-    public static final String MESSAGE_PRIORITY_CONSTRAINTS = "Task priority should /low, /medium or /high";
+    public static final String MESSAGE_PRIORITY_CONSTRAINTS = "Task priority should be /low, /medium or /high";
 //    public static final String PRIORITY_VALIDATION_REGEX = "(high|medium|low)";
     
     public static final String HIGH = "high";
