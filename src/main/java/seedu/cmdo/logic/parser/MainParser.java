@@ -68,16 +68,14 @@ public class MainParser {
      */
     public Command parseCommand(String userInput) {
     	String[] splitedInput = userInput.split("\\s+");
-    	String command_word, commandWord, arguments; 
+    	String commandWord, arguments; 
     	if(splitedInput.length == 2 && ((splitedInput[1].equals("done")) || (splitedInput[1].equals("all")))){
     		Matcher matcher = LIST_COMMAND_FORMAT.matcher(userInput.trim());
             if (!matcher.matches()) {
                 return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
             }
-            command_word = matcher.group("commandWord");
+            commandWord = matcher.group("commandWord");
             arguments = matcher.group("arguments");
-            arguments = getCleanString(arguments);
-            commandWord = command_word.replaceAll("\\p{Z}","");
     	}
     	else{
     		Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
@@ -86,8 +84,9 @@ public class MainParser {
             }
             commandWord = matcher.group("commandWord");
             arguments = matcher.group("arguments");
-            arguments = getCleanString(arguments);
+            
     	}
+    	arguments = getCleanString(arguments);
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
@@ -112,11 +111,9 @@ public class MainParser {
             return prepareFind(arguments);
             
         case ListCommand.COMMAND_WORD_ALL:        	
-        case ListCommand.COMMAND_WORD_SHORT_ALL:
         	return prepareList(arguments);
         	
         case ListCommand.COMMAND_WORD_DONE:	
-        case ListCommand.COMMAND_WORD_SHORT_DONE:
             return prepareList("--done");
             
         case ExitCommand.COMMAND_WORD:
@@ -138,21 +135,19 @@ public class MainParser {
      */
     private Command prepareAdd(String args){
         String[] splittedArgs = getCleanString(args).split(" ");
-        reducedArgs = extractDueByDateAndTime(args);
+        boolean validTime = false;
+        for(String sArg : splittedArgs){
+        	if(sArg.equals("at"))
+        		validTime = true;
+        }
+        reducedArgs = extractDueByDateAndTime(args,validTime);
         LocalDateTime dt;
         
-        //check for empty add
-        if(args.isEmpty()){
-            return new IncorrectCommand(
-                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
-        }
-        
-        // check for add 1-23
+        // check for empty detail
         if(extractDetail(reducedArgs).isEmpty()){
             return new IncorrectCommand(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
-        }        
-        
+        }               
         
         if (datesAndTimes.size() != 0)
         	dt = datesAndTimes.get(0);
@@ -183,6 +178,7 @@ public class MainParser {
     private Command prepareEdit(String args){
         // Determine if edit command is input correctly
     	Optional<Integer> checkForIndex = parseLooseIndex(args);
+    	
         if(!checkForIndex.isPresent()){
             return new IncorrectCommand(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
@@ -190,6 +186,12 @@ public class MainParser {
     	
         // Determine if the edit command is used correctly
     	String[] splittedArgs = getCleanString(args).split(" ");
+        boolean validTime = false;
+        for(String sArg : splittedArgs){
+        	if(sArg.equals("at"))
+        		validTime = true;
+        }
+        
     	Integer index = Integer.valueOf(splittedArgs[0]);
         if(index == null){
             return new IncorrectCommand(
@@ -201,8 +203,15 @@ public class MainParser {
         args = args.replaceFirst("[0-9]+\\s", "");
         
         // Parse date and time
-        reducedArgs = extractDueByDateAndTime(args);
+        reducedArgs = extractDueByDateAndTime(args, validTime);
         LocalDateTime dt;
+        
+        // empty details
+        if(extractDetail(reducedArgs).isEmpty()){
+            return new IncorrectCommand(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }        
+        
         if (datesAndTimes.size() != 0)
         	dt = datesAndTimes.get(0);
         else
@@ -416,29 +425,42 @@ public class MainParser {
      * 
      * @author A0139661Y
      */
-    public String extractDueByDateAndTime(String dirtyArgs) {
+    public String extractDueByDateAndTime(String dirtyArgs, boolean validTime) {
     	Parser parser = new Parser();
     	List<DateGroup> groups = parser.parse(dirtyArgs);
     	String cleanArgs = dirtyArgs;
+    	
+    	
     	
     	try {
     		DateGroup group = groups.get(0);
     		List<Date> dateList = group.getDates(); 	// Extract date
     		Map<String, List<ParseLocation>> parseMap = group.getParseLocations();
-    		if ((!parseMap.containsKey("explicit_time") && parseMap.containsKey("relative_date")) || 
-    				(!parseMap.containsKey("explicit_time") && parseMap.containsKey("formal_date"))) {
+
+    		if (((!parseMap.containsKey("explicit_time") && parseMap.containsKey("relative_date")) || 
+    				(!parseMap.containsKey("explicit_time") && parseMap.containsKey("formal_date")))) {
     			for (Date date : dateList) {
     				LocalDateTime temp = LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
     				datesAndTimes.add(LocalDateTime.of(temp.toLocalDate(), LocalTime.MAX));
     			}
-    		} else {
-    			for (Date date : dateList) {
-    				datesAndTimes.add(LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault()));
+        		for (ParseLocation parsedWord : parseMap.get("parse")) {
+        			cleanArgs = cleanArgs.substring(0, parsedWord.getStart() - 1) + cleanArgs.substring(parsedWord.getEnd() -1);
+        		}
+    		}
+    	
+    		else {
+    			if(validTime){
+	    			for (Date date : dateList) {
+	    				datesAndTimes.add(LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault()));
+	    			}
+	        		for (ParseLocation parsedWord : parseMap.get("parse")) {
+	        			cleanArgs = cleanArgs.substring(0, parsedWord.getStart() - 1) + cleanArgs.substring(parsedWord.getEnd() -1);
+	        		}
     			}
     		}
-    		for (ParseLocation parsedWord : parseMap.get("parse")) {
-    			cleanArgs = cleanArgs.substring(0, parsedWord.getStart() - 1) + cleanArgs.substring(parsedWord.getEnd() -1);
-    		}
+    		
+
+    		
     		return cleanArgs;	// Return a cleaned up string
     	} catch (IndexOutOfBoundsException e) {
     		return dirtyArgs;
