@@ -9,7 +9,6 @@ import seedu.cmdo.logic.commands.CommandResult;
 import seedu.cmdo.logic.parser.Blocker;
 import seedu.cmdo.logic.parser.MainParser;
 import seedu.cmdo.model.Model;
-import seedu.cmdo.model.ReadOnlyToDoList;
 import seedu.cmdo.model.task.ReadOnlyTask;
 import seedu.cmdo.storage.Storage;
 
@@ -39,16 +38,8 @@ public class LogicManager extends ComponentManager implements Logic {
         return command.execute();
     }
     
-    // @@author A0139661Y
-    @Override
-    public ObservableList<ReadOnlyTask> getBlockedList() {
+    public UnmodifiableObservableList<ReadOnlyTask> getBlockedList() {
     	return model.getBlockedList();
-    }
-    
-    // @@author A0139661Y
-    @Override
-    public ObservableList<ReadOnlyTask> getAllTaskList() {
-    	return model.getAllTaskList();
     }
     
     @Override
@@ -59,5 +50,5 @@ public class LogicManager extends ComponentManager implements Logic {
     @Override
     public ObservableList<ReadOnlyTask> getFilteredTaskList(boolean firstRun) {
         return model.getFilteredTaskList(firstRun);
-    }    
+    }
 }

@@ -9,7 +9,7 @@ public class StorageCommand extends Command {
 	
     public static final String COMMAND_WORD = "storage";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Changes the storage folder path of CMDo.\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Changes the storage folder path of CMDo "
             + "Parameters: <file/path/name>"
             + "Example: " + COMMAND_WORD
             + " /home/Documents";

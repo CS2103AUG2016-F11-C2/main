@@ -33,9 +33,6 @@ public interface Model {
     UnmodifiableObservableList<ReadOnlyTask> getFilteredTaskList(boolean firstRun);
     
     UnmodifiableObservableList<ReadOnlyTask> getBlockedList();
-    
-	UnmodifiableObservableList<ReadOnlyTask> getAllTaskList();
-
 
     void updateFilteredListToShowBlocked();
     
@@ -51,4 +48,5 @@ public interface Model {
 	void editTask(ReadOnlyTask taskToEdit, Task toEditWith) throws TaskNotFoundException;
 
 	void changeStorageFilePath(String filePath);
+
 }

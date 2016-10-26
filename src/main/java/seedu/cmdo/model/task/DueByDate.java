@@ -1,7 +1,10 @@
 package seedu.cmdo.model.task;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 import seedu.cmdo.commons.exceptions.IllegalValueException;
@@ -13,13 +16,11 @@ import seedu.cmdo.commons.exceptions.IllegalValueException;
 public class DueByDate {
 
     public static final String MESSAGE_DUEBYDATE_CONSTRAINTS = "Due by? You should enter a day, or a date.";
-    private final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("MM/dd/uuuu");
-    private final LocalDate NO_DATE = LocalDate.MIN;
+//    public static final String DUEBYDATE_VALIDATION_REGEX = ".*";
 
     public final LocalDate start;
-    public LocalDate end;
+    public final LocalDate end;
     public final Boolean isRange;
-    private Boolean isFloating = false; // Floating date is found in task with no date.
 
     /**
      * Takes in a single date.
@@ -33,8 +34,6 @@ public class DueByDate {
         this.end = LocalDate.MIN;
         this.start = dueByDate;
         this.isRange = false;
-        if (dueByDate.equals(NO_DATE))
-        	this.isFloating = true;
     }
     
     /**
@@ -82,41 +81,29 @@ public class DueByDate {
      */
 	public String getFriendlyString() {		
 		// If floating date, return do not print anything
-		if (start.equals(NO_DATE) && end.equals(NO_DATE))
+		if (start.equals(LocalDate.MIN) && end.equals(LocalDate.MIN))
 			return "";
 		if (!isRange) {
-			return new StringBuilder(start.format(DATE_FORMAT)).toString();
+			return new StringBuilder(start.format(DateTimeFormatter.ofPattern("MM/dd/uuuu"))).toString();
 		}
-		return new StringBuilder(start.format(DATE_FORMAT) 
+		return new StringBuilder(start.format(DateTimeFormatter.ofPattern("MM/dd/uuuu")) 
 								+ " - " 
-								+ end.format(DATE_FORMAT))
+								+ end.format(DateTimeFormatter.ofPattern("MM/dd/uuuu")))
 								.toString();
-	}
-	
-	//@@author A0141128R
-	//setter to set it a floating for edit command purpose
-	public void setFloating(){
-		end = LocalDate.MIN;
-	}
-	//to check if date was entered
-	public boolean dateNotEntered(){
-		if (end.equals(LocalDate.MIN) & start.equals(LocalDate.MIN))
-			return true;
-		else
-			return false;
 	}
 	
 	// Operates on the premise that the start date is always specified.
 	// @@author A0139661Y
 	public String getFriendlyStartString() {
-		if (isFloating) return "";
-		if (!isRange) return start.format(DATE_FORMAT).toString();
-		return start.format(DATE_FORMAT).toString(); 
+		if (!isRange)
+			return "";
+		return start.format(DateTimeFormatter.ofPattern("MM/dd/uuuu")).toString(); 
 	}
 	
 	// @@author A0139661Y
 	public String getFriendlyEndString() {
-		if (!isRange || isFloating || end.equals(NO_DATE)) return "";
-		return end.format(DATE_FORMAT).toString();
+		if (end.equals(LocalDate.MIN)) {
+			return "";
+		} else return end.format(DateTimeFormatter.ofPattern("MM/dd/uuuu")).toString();
 	}
 }

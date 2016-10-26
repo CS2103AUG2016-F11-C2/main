@@ -1,6 +1,7 @@
 package seedu.cmdo.model.task;
 
 
+import java.time.Duration;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -15,13 +16,11 @@ import seedu.cmdo.commons.exceptions.IllegalValueException;
 public class DueByTime {
 
     public static final String MESSAGE_DUEBYTIME_CONSTRAINTS = "Due at what time? You should type in a time in format HHMM";
-    private final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HHmm");
-    private final LocalTime NO_TIME = LocalTime.MAX;
-    
-    public LocalTime start;
-    public LocalTime end;
+//    public static final String DUEBYTIME_VALIDATION_REGEX = ".*";
+
+    public final LocalTime start;
+    public final LocalTime end;
     public final Boolean isRange;
-    private Boolean isFloating = false; // Floating time is found in tasks with no time. 
     
     /**
      * Validates given dueByTime.
@@ -32,14 +31,13 @@ public class DueByTime {
      */
     public DueByTime(LocalTime dueByTime) throws IllegalValueException {
         assert dueByTime != null;
-        // Check for date with time
-        if (!dueByTime.equals(NO_TIME)) {
+        // Enable storage of floating time
+        if (!dueByTime.equals(LocalTime.MAX)) {
         	this.start = dueByTime.truncatedTo(ChronoUnit.MINUTES);
-        } else { 
-        	this.start = NO_TIME;
-        	this.isFloating = true;
+        } else {
+        	this.start = dueByTime;
         }
-    	this.end = NO_TIME;
+    	this.end = LocalTime.MAX;
     	this.isRange = false;
     }
     
@@ -53,10 +51,9 @@ public class DueByTime {
     public DueByTime(LocalTime dueByTimeStart, LocalTime dueByTimeEnd) throws IllegalValueException {
         assert dueByTimeStart != null && dueByTimeEnd != null;
         // Enable storage of floating time in date range
-        if (dueByTimeStart.equals(NO_TIME) && dueByTimeEnd.equals(NO_TIME)) {
-        	this.start = NO_TIME;
+        if (dueByTimeStart.equals(LocalTime.MAX) && dueByTimeEnd.equals(LocalTime.MAX)) {
+        	this.start = LocalTime.MAX;
         	this.end = start;
-        	this.isFloating = true;
         } else {
         	this.start = dueByTimeStart.truncatedTo(ChronoUnit.MINUTES);
         	this.end = dueByTimeEnd.truncatedTo(ChronoUnit.MINUTES);
@@ -78,24 +75,6 @@ public class DueByTime {
                 || (other instanceof DueByTime // instanceof handles nulls
                 && this.equals((DueByTime) other)); 
     }
-    
-    //@@author A0141128R
-    //to set it to a floating task for edit command purpose
-    public void setFloating(){
-    	this.start = LocalTime.MAX;
-    	this.end = start;
-    }
-    //check if single time
-    public boolean isSingleTime(){
-    	return isFloating;
-    }
-    //check if time is entered
-    public boolean timeNotEntered(){
-    	if (end.equals(LocalTime.MAX) & start.equals(LocalTime.MAX))
-    		return true;
-    	else
-    		return false;
-    }
 
     @Override
     public int hashCode() {
@@ -114,32 +93,29 @@ public class DueByTime {
      */
     public String getFriendlyString() {
 		// If floating date, return do not print anything
-		if (start.equals(NO_TIME) && end.equals(NO_TIME)) {
+		if (start.equals(LocalTime.MAX) && end.equals(LocalTime.MAX)) {
 			return "";
 		}
     	if (!isRange) {
-    		return new StringBuilder(start.format(TIME_FORMAT)).toString();
+    		return new StringBuilder(start.format(DateTimeFormatter.ofPattern("HHmm"))).toString();
     	}
-		return new StringBuilder(start.format(TIME_FORMAT) 
+		return new StringBuilder(start.format(DateTimeFormatter.ofPattern("HHmm")) 
 				+ " - " 
-				+ end.format(TIME_FORMAT))
+				+ end.format(DateTimeFormatter.ofPattern("HHmm")))
 				.toString();
 	}
     
 	// @@author A0139661Y
 	public String getFriendlyStartString() {
-		if (!isRange && isFloating)
+		if (!isRange)
 			return "";
-		return start.format(TIME_FORMAT).toString(); 
+		return start.format(DateTimeFormatter.ofPattern("HHmm")).toString(); 
 	}
 	
 	// @@author A0139661Y
 	public String getFriendlyEndString() {
-		if (!isRange) {
+		if (end.equals(LocalTime.MAX)) {
 			return "";
-		}
-		if (end.equals(NO_TIME)) {
-			return "";
-		} else return end.format(TIME_FORMAT).toString();
+		} else return end.format(DateTimeFormatter.ofPattern("HHmm")).toString();
 	}
 }

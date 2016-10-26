@@ -9,7 +9,6 @@ import seedu.cmdo.testutil.TestTask;
 import seedu.cmdo.testutil.TestUtil;
 
 import static org.junit.Assert.assertTrue;
-import static seedu.cmdo.logic.commands.AddCommand.MESSAGE_SUCCESS;
 
 public class AddCommandTest extends ToDoListGuiTest {
 
@@ -66,9 +65,6 @@ public class AddCommandTest extends ToDoListGuiTest {
         //confirm the list now contains all previous tasks plus the new task
         TestTask[] expectedList = TestUtil.addTasksToList(currentList, taskToAdd);
         assertTrue(taskListPanel.isListMatching(expectedList));
-        
-        //confirm
-        assertResultMessage(MESSAGE_SUCCESS);
     }
 
 }

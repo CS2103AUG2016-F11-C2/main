@@ -30,9 +30,9 @@ public class BlockCommand extends Command {
     public static final String COMMAND_WORD = "block";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Blocks a timeslot in the address book. "
-            + "\n" + "Parameters: <details> by/on <date> at <time> /<priority> -<TAG>\n"
+            + "Parameters: <details> by/on <date> at <time> /<priority> /<TAG...>\n"
             + "Example: " + COMMAND_WORD
-            + " 'unconfirmed business meeting' on Thursday at noon to 1300 /high -business";
+            + " unconfirmed business meeting on Thursday at noon to 1300 /high -$$$";
 
     public static final String MESSAGE_SUCCESS = "Time slot blocked: %1$s";
     public static final String MESSAGE_DUPLICATE_TASK = "This time slot if already booked";

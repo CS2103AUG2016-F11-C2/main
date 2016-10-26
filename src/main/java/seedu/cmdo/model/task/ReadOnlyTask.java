@@ -58,7 +58,7 @@ public interface ReadOnlyTask {
 //    }
 
   /**
-   * Formats the task as text, showing all details.
+   * Formats the task as text, showing all contact details.
    */
   default String getAsText() {
 	    return getDetail().details;
