@@ -10,6 +10,7 @@ import seedu.cmdo.model.tag.UniqueTagList;
 /**
  * Represents a Task in the To Do List.
  * Guarantees: details are present and not null, field values are validated.
+ * @@author A0138471A
  **/
 public class Task implements ReadOnlyTask {
 

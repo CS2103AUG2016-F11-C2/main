@@ -111,6 +111,7 @@ public class MainParser {
             
     	}
     	args = getCleanString(arguments);
+    	args = convertToTo(args);
         switch (commandWord) {
 
         case AddCommand.COMMAND_WORD:
@@ -342,7 +343,7 @@ public class MainParser {
     private void process() throws IllegalValueException {
     	extractDetail();			// Saves to detailToAdd
     	extractDueByDateAndTime(); 	// Saves to datesAndTimes
-    	checkPriorityValidity(); 	// Throws exception if priority entered wrongly
+    //	checkPriorityValidity(); 	// Throws exception if priority entered wrongly
     	splittedArgs = getCleanString(args).split(" ");
     	saveDueByDateAndTime(); 	// Saves to dt family.
     	reset();         			// Clear dates and times		
@@ -355,7 +356,9 @@ public class MainParser {
      * @throws IllegalValueException if only one ' found, or if detail is blank.
      * 
      * @@author A0139661Y
+     * 
      */
+    //@@author A0138471A
     private void extractDetail() throws IllegalValueException {
     	checkValidDetailInput();
     	// Split into '  ...  '
@@ -364,17 +367,27 @@ public class MainParser {
     	String output = new StringBuilder(details[0]).replace(details[0].lastIndexOf("'"), 
     													details[0].length(), 
     													"").toString();
+    	
+    	// Details only, get rid of anything before the '
+    	for(char o : output.toCharArray()){
+    		if(o =='\''){
+    			break;
+    		}
+    		else
+    			output=output.replaceFirst(".", "");
+    	}
     	// Get rid of the first '
     	output = output.replaceFirst("'","");
     	// Save to instance
     	detailToAdd = output;
-    	// return rear end
-    	args = new StringBuilder(details[0]).substring(details[0].lastIndexOf("'")+1).toString();
+    	// return args without details
+    	args = args.replace(output, "");
     }
     
      //@@author A0139661Y
     
     //@@author A0139661Y
+    //@@author A0138471A
     private void extractDetailForEdit() throws IllegalValueException {
     	if (!checkValidDetailInputForEdit()) {
     		detailToAdd = "";
@@ -386,12 +399,20 @@ public class MainParser {
     	String output = new StringBuilder(details[0]).replace(details[0].lastIndexOf("'"), 
     													details[0].length(), 
     													"").toString();
+    	// Details only, get rid of anything before the '
+    	for(char o : output.toCharArray()){
+    		if(o =='\''){
+    			break;
+    		}
+    		else
+    			output=output.replaceFirst(".", "");
+    	}
     	// Get rid of the first '
     	output = output.replaceFirst("'","");
     	// Save to instance
     	detailToAdd = output;
-    	// return rear end
-    	args = new StringBuilder(details[0]).substring(details[0].lastIndexOf("'")+1).toString();
+    	// return args without details
+    	args = args.replace(output, "");
     }
     
 	
@@ -464,6 +485,7 @@ public class MainParser {
     
     //@@author A0139661Y
     public void extractDueByDateAndTime() {
+    	//convertToTo(args);
     	List<DateGroup> groups = parser.parse(args);
     	String cleanArgs = args;
     	
@@ -545,6 +567,10 @@ public class MainParser {
     private String getCleanString(String args) {
     	return args.trim().replaceAll("\\s+", " ");
     }
+    //@@author A0138471A
+    private String convertToTo(String args) {
+		return args.replaceAll(" - ", " to ");
+    }
     
     /**
      * Returns the specified index in the {@code command} IF a positive unsigned integer is given as the index.
@@ -587,10 +613,11 @@ public class MainParser {
     } 
 
 	//@@author A0139661Y
-    private void checkPriorityValidity() throws IllegalValueException {
+   /* private void checkPriorityValidity() throws IllegalValueException {
     	if (args.contains("/") && !args.contains(" /")) // Checks for accidental '/' instead of ' /'
     		throw new IllegalValueException(Messages.MESSAGE_INVALID_PRIORITY_SPACE);
 	}
+	*/
 
 	//@@author A0139661Y
     private void checkSpecialRequestInEdit() {

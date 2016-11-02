@@ -11,6 +11,7 @@ import seedu.cmdo.commons.exceptions.IllegalValueException;
 /**
  * Represents a Task's due time in the To Do List.
  * Guarantees: immutable; is valid as declared in {@link #isValidDueByTime(String)}
+ * @@author A0138471A
  */
 public class DueByTime {
 
@@ -57,11 +58,13 @@ public class DueByTime {
         	this.start = NO_TIME;
         	this.end = start;
         	this.isFloating = true;
+        	this.isRange = false;
         } else {
         	this.start = dueByTimeStart.truncatedTo(ChronoUnit.MINUTES);
         	this.end = dueByTimeEnd.truncatedTo(ChronoUnit.MINUTES);
+        	this.isRange = true;
         }
-        this.isRange = true;
+        
     }
 
     @Override
