@@ -78,7 +78,7 @@ public class RedoCommandTest extends ToDoListGuiTest {
         //fails assertion if called after add
         //redo undo of remove priority of first task using 'rp' or 'remove priority'
         targetIndex = 1;
-        commandBox.runCommand("edit " + targetIndex + " remove priority");
+        commandBox.runCommand("edit " + targetIndex + " no priority");
         editedTask = td.noPriorityGrocery;
         currentList = TestUtil.replaceTaskFromList(currentList,editedTask,targetIndex-1);
         execute(currentList);

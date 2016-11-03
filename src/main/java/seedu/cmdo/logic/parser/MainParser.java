@@ -343,7 +343,7 @@ public class MainParser {
     private void process() throws IllegalValueException {
     	extractDetail();			// Saves to detailToAdd
     	extractDueByDateAndTime(); 	// Saves to datesAndTimes
-    //	checkPriorityValidity(); 	// Throws exception if priority entered wrongly
+    	checkPriorityValidity(); 	// Throws exception if priority entered wrongly
     	splittedArgs = getCleanString(args).split(" ");
     	saveDueByDateAndTime(); 	// Saves to dt family.
     	reset();         			// Clear dates and times		
@@ -613,11 +613,11 @@ public class MainParser {
     } 
 
 	//@@author A0139661Y
-   /* private void checkPriorityValidity() throws IllegalValueException {
+    private void checkPriorityValidity() throws IllegalValueException {
     	if (args.contains("/") && !args.contains(" /")) // Checks for accidental '/' instead of ' /'
     		throw new IllegalValueException(Messages.MESSAGE_INVALID_PRIORITY_SPACE);
 	}
-	*/
+	
 
 	//@@author A0139661Y
     private void checkSpecialRequestInEdit() {

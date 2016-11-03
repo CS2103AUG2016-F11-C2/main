@@ -36,7 +36,7 @@ public class EditCommandTest extends ToDoListGuiTest {
         
         //remove priority of first task 
         targetIndex = 1;
-        execute(targetIndex, currentList, "remove priority",td.noPriorityGrocery);
+        execute(targetIndex, currentList, "no priority",td.noPriorityGrocery);
         
         //change time of task 2 to 1120
         targetIndex = 2;
