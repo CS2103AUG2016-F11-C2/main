@@ -1,3 +1,4 @@
+<!-- @@author A0141006B -->
 # Developer Guide 
 
 * [Setting Up](#setting-up)
@@ -237,8 +238,7 @@ Here are the steps to create a new release.
 
 A project often depends on third party libraries. For example, CMDo depends on the 
 [Natty](http://github.com/joestelmach/natty) for date/time natural language parsing. Managing these _dependencies_
-can be automated using Gradle or Maven. For example, Gradle can download the dependencies automatically, which
-is better than these alternatives.<br>
+can be automated using Gradle or Maven. For example, Gradle can download the dependencies automatically, which is better than these alternatives.<br>
 a. Include those libraries in the repo (this bloats the repo size)<br>
 b. Require developers to download those libraries manually (this creates extra work for developers)<br>
 
@@ -575,6 +575,10 @@ Use case ends.
 
 > Windows, Linux, Unix, OS-X
 
+##### Fuzzy and Power Search
+
+> Refers to a search which is gives leeway in keyword matching but allows for flexibility in parameter input.
+
 ## Appendix E : Product Survey
 
 ### Product 1: WunderList
@@ -627,4 +631,4 @@ Use case ends.
 
 ---
 
-_Last updated 14 Nov 2016 by @author A0141128R_
+_Last updated 14 Nov 2016_

@@ -23,7 +23,7 @@ Thanks for using CMDo! Let's get started right away.
 
 ## Orientation
 
-1. Tasks in CMDo are sorted accordingly, hence, tasks that are closest to the deadline will be at the top, as shown below.<br>
+1. Tasks in CMDo are sorted accordingly, hence, tasks that are closest to the deadline will be at the top, as shown below.<br><br>
    <img src="images/Main.jpeg" width="600"><br>
 2. Tasks are coded as follows
 
@@ -35,12 +35,12 @@ Thanks for using CMDo! Let's get started right away.
     Red: Overdue tasks
 
     #### Icon
-    <img src="images/today.png" width="50"><br>
-    <img src="images/tomorrow.png" width="50"><br>
-    <img src="images/thisweek.png" width="50"><br>
-    <img src="images/nexttime.png" width="50"><br>
-    <img src="images/floating.png" width="50"><br>
-    <img src="images/duesoon.png" width="50"><br>
+    <img src="images/today.png" width="50">
+    <img src="images/tomorrow.png" width="50">
+    <img src="images/thisweek.png" width="50">
+    <img src="images/nexttime.png" width="50">
+    <img src="images/floating.png" width="50">
+    <img src="images/duesoon.png" width="50">
     <img src="images/overdue.png" width="50"><br>
 
     Blocked tasks<br>
