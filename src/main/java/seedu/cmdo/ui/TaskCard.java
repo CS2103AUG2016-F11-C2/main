@@ -173,7 +173,9 @@ public class TaskCard extends UiPart{
     	if(task.checkDone().value) {
     		status.setFill(Color.GREEN);
     		setTextColor(id,detail,sd,st,dbd,dbt,Color.BLACK);
-    	}    	
+    	} else if (task.getBlock()) {
+    		status.setFill(Color.RED);
+    	}
 	}
 
 	private void setTextColor(Label id, Label detail, Label sd, Label st, 
