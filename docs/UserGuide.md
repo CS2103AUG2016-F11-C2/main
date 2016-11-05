@@ -1,4 +1,4 @@
-<!--  A0141128R -->
+<!-- @@author A0141128R -->
 # User Guide
 
 <br><img align="center" src="images/Logo.jpeg" width="600"><br>

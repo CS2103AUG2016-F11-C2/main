@@ -14,7 +14,7 @@ import static seedu.cmdo.logic.commands.EditCommand.MESSAGE_EDITED_TASK_SUCCESS;
 
 import java.util.ArrayList;
 
-// @@author A0141128R tested and passed
+// @@author A0141128R
 public class EditCommandTest extends ToDoListGuiTest {
 	
     @Test

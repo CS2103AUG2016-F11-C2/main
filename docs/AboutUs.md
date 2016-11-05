@@ -8,46 +8,46 @@ We are a team F11-C2, a CS2103 team based in [School of Computing, National Univ
 #### [Chiang Weng Kiat](http://github.com/wengkiat) <br>
 <img src="images/ChiangWengKiat.jpg" width="150"><br>
 
-* Components in charge of: [Logic]()
+* Components in charge of: Logic
 * Aspects/tools in charge of: Testing
 * Features implemented:
-    * [Block tasks]()
-    * [Edit tasks]()
-    * [Delete tasks]()
-    * [Done tasks]()
-* Code written: [[functional code](A0141128R.md)][[test code](A0141128R.md)][[docs](A0141128R.md)]
+    * Block tasks
+    * Edit tasks
+    * Delete tasks
+    * Done tasks
+* Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141128R.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/test/A0141128R.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/test/A0141128R.md)
 * Other major contributions:
     * Did up the user guide
     * Did up the developer guide
     * Wrote all the test codes except the AddCommandTest
+
 -----
 
 #### [Justin Ng](http://github.com/njyjn)
 <img src="images/JustinNg.jpg" width="150"><br>
 
-* Components in charge of: [Storage](), [Model]()
+* Components in charge of: Storage, Model
 * Aspects/tools in charge of: Git, Integration
 * Features implemented:
-    * [Add tasks]()
-    * [Find tasks (Fuzzy Search)]()
-    * [List tasks by all/done]()
-    * [Change file storage]()
-    * [Undo]()
-* Code written: [[functional code](A0139661Y.md)][[test code](A0139661Y.md)][[docs](A0139661Y.md)]
+    * Add tasks
+    * Find tasks (Fuzzy Search)
+    * List tasks by all/done
+    * Change file storage
+    * Undo
+* Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0139661Y.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0139661Y.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0139661Y.md)]
 * Other major contributions:
   * Did the initial refactoring from AddressBook to ToDoList [[#]()]
   * Set up Travis and Coveralls
   * Wrote AddCommandTest. 
 
- 
 -----
 #### [Rahumathmarini](http://github.com/marinirah)
 <img src="images/Rahumathmarini.jpg" width="150"><br>
 
-* Components in charge of: [Model]()
+* Components in charge of: Model
 * Aspects/tools in charge of: Quality
 * Features implemented: -
-* Code written: [[functional code]()][[test code]()][[docs]()]
+* Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0138471A.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0138471A.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0138471A.md)]
 * Other major contributions:
     * Refactored initial `Task` model
 
@@ -56,12 +56,12 @@ We are a team F11-C2, a CS2103 team based in [School of Computing, National Univ
 #### [Lim Hong Wei](http://github.com/imhongw)
 <img src="images/LimHongWei.jpg" width="150"><br>
 
-* Components in charge of: [UI]()
+* Components in charge of: UI
 * Aspects/tools in charge of: Design
 * Features implemented:
-    * [Help]()
-    * [Redo]()
-* Code written: [[functional code](A0141006B.md)][[test code](A0141006B.md)][[docs](A0141006B.md)]
+    * Help
+    * Redo
+* Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141006B.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141006B.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141006B.md)]
 * Other major contributions:
     * Restructuring of the UI 
     * Advising on other implementions
