@@ -181,6 +181,12 @@ public class EditCommand extends Command {
     		toEditWith.setStartLdt(LocalDateTime.of(NO_DATE_DEFAULT, NO_TIME_DEFAULT));
     }
     
+    //check if the task to edit is a blocked time slot 
+    public void checkBlock(ReadOnlyTask taskToEdit){
+    	if(taskToEdit.getBlock())
+    	toEditWith.setBlock();
+    }
+    
     @Override
     public CommandResult execute() {
         UnmodifiableObservableList<ReadOnlyTask> lastShownList = model.getFilteredTaskList();
@@ -197,6 +203,8 @@ public class EditCommand extends Command {
         	return new CommandResult(Messages.MESSAGE_EDIT_TASK_IS_DONE_ERROR);
         }
         
+        //check if it is a blocked time slot
+        checkBlock(taskToEdit);
         //check for changes in detail and append
         editDetails(taskToEdit);
         //check for date and time and append
