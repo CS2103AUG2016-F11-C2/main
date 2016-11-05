@@ -23,15 +23,15 @@ Thanks for using CMDo! Let's get started right away.
 
 ## Orientation
 
-1. Tasks in CMDo are sorted accordingly, hence, tasks that are closest to the deadline will be at the top, as shown below.
-   <img src="images/Main.jpeg" width="600">
+1. Tasks in CMDo are sorted accordingly, hence, tasks that are closest to the deadline will be at the top, as shown below.<br>
+   <img src="images/Main.jpeg" width="600"><br>
 2. Tasks are coded as follows
 
     #### Text Color
-    <img src="images/UGTextColorBlack.png" width="30"><br>
+    <img src="images/UGTextColorBlack.png" width="70"><br>
     Black: Regular tasks
     
-    <img src="images/UGTextColorRed.png" width="30"><br>
+    <img src="images/UGTextColorRed.png" width="70"><br>
     Red: Overdue tasks
 
     #### Icon
