@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
+import seedu.cmdo.commons.core.Messages;
 import edu.emory.mathcs.backport.java.util.Arrays;
 import edu.emory.mathcs.backport.java.util.Collections;
 import guitests.guihandles.TaskCardHandle;
-import seedu.cmdo.commons.core.Messages;
 import seedu.cmdo.testutil.TestTask;
 import seedu.cmdo.testutil.TestUtil;
 
@@ -55,6 +55,12 @@ public class BlockCommandTest extends ToDoListGuiTest {
         //invalid command
         runCommand("blocks meeting with OCBC");
         assertResultMessage(Messages.MESSAGE_UNKNOWN_COMMAND);
+        
+        //checks that the block time slot stays as a block timeslot after edit by trying to do it
+        runCommand("edit 1 'Unconfirmed meeting with Apple'");
+        //tries to do the edited command task
+        runCommand("done 1");
+        assertResultMessage(Messages.MESSAGE_CANNOT_DONE);
     }
     
     //confirm the new card contains the right details
