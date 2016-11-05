@@ -360,6 +360,11 @@ public class MainParser {
     }
      
     //@@author A0139661Y
+    /** Passes in index 0, 1 or 2 to the List Command based on what the user wants.
+     * 0: not done (all)
+     * 1: done tasks
+     * 2: blocked tasks 
+     */  
     private Command prepareList(String args) {
         int type = 0; // we assume the user is searching for undone tasks
         if (args.contains("--done")) {

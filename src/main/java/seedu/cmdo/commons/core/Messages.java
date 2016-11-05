@@ -11,6 +11,7 @@ public class Messages {
     public static final String MESSAGE_TASKS_LISTED_OVERVIEW = "%1$d tasks listed!";
     public static final String MESSAGE_TASKS_FOUND_OVERVIEW = "You entered: %s \nListing all tasks which are %d percent similar to your input.";
     public static final String MESSAGE_DONE_TASKS_LISTED_OVERVIEW = "%1$d done tasks listed!";
+    public static final String MESSAGE_BLOCKED_TASKS_LISTED_OVERVIEW = "All blocked tasks listed!";
     public static final String MESSAGE_EDIT_TASK_IS_DONE_ERROR = "Cannot edit a done task!";
     public static final String MESSAGE_EDIT_TASK_SUCCESS = "Task edited";
 	public static final String MESSAGE_INVALID_PRIORITY = "Priority is either high, medium or low. Please try again.";

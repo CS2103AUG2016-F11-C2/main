@@ -121,16 +121,13 @@ public class DueByTime {
 	}
     
 	public String getFriendlyStartString() {
-		if (!isRange && isFloating)
+		if ((!isRange && isFloating) || start.equals(NO_TIME))
 			return "";
 		return start.format(TIME_FORMAT).toString(); 
 	}
 	
 	public String getFriendlyEndString() {
-		if (!isRange) {
-			return "";
-		}
-		if (end.equals(NO_TIME)) {
+		if (!isRange || end.equals(NO_TIME)) {
 			return "";
 		} else return end.format(TIME_FORMAT).toString();
 	}
