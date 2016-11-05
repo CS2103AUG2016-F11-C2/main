@@ -46,9 +46,7 @@ public class Priority {
      */
     public static boolean isValidPriority(String testString) {
     	String test = testString.toLowerCase();
-    	if (test.equals(HIGH) || test.equals((MEDIUM)) || test.equals(LOW) || test.equals(NONE))
-    		return true;
-    	return false;
+    	return (test.equals(HIGH) || test.equals((MEDIUM)) || test.equals(LOW) || test.equals(NONE));
     }
     
     //getter to get value 
@@ -58,16 +56,6 @@ public class Priority {
     //setter for priority
     public void setPriority(String value){
     	this.value = value;
-    }
-
-    @Override
-    public String toString() {
-        return value;
-    }
-
-    @Override
-    public int hashCode() {
-        return value.hashCode();
     }
 
 }

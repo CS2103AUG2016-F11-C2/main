@@ -87,10 +87,7 @@ public class DueByTime {
     }
     //check if time is entered
     public boolean timeNotEntered(){
-    	if (end.equals(LocalTime.MAX) & start.equals(LocalTime.MAX))
-    		return true;
-    	else
-    		return false;
+    	return (end.equals(LocalTime.MAX) && start.equals(LocalTime.MAX));
     }
 
     @Override

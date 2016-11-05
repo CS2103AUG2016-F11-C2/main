@@ -10,6 +10,7 @@ import com.google.common.eventbus.Subscribe;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -18,7 +19,6 @@ import seedu.cmdo.commons.core.LogsCenter;
 import seedu.cmdo.commons.events.model.ToDoListChangedEvent;
 import seedu.cmdo.model.task.DueByDate;
 import seedu.cmdo.model.task.ReadOnlyTask;
-import javafx.scene.Node;
 
 //@@author A0141006B
 public class TaskCategory extends UiPart {

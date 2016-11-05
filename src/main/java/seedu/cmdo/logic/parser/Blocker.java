@@ -20,13 +20,11 @@ public class Blocker {
 
     private static final Logger logger = LogsCenter.getLogger(MainApp.class);
 	
-	LocalDate checkingDate;
-	LocalTime checkingTime;
-	LocalDateTime checking;
-	LocalDateTime againstStart;
-	LocalDateTime againstEnd;
-
-	public Blocker() {}
+	private LocalDate checkingDate;
+	private LocalTime checkingTime;
+	private LocalDateTime checking;
+	private LocalDateTime againstStart;
+	private LocalDateTime againstEnd;
 
 	public ArrayList<LocalDateTime> checkBlocked(Task toCheck, UnmodifiableObservableList<ReadOnlyTask> blockedList)
 										throws TaskBlockedException {

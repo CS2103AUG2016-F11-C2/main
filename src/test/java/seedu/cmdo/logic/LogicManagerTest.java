@@ -170,7 +170,7 @@ public class LogicManagerTest {
     @Test
     public void execute_add_invalidTaskData() throws Exception {
         assertCommandBehavior(
-                "add 'new task' -/tag", Messages.MESSAGE_INVALID_PRIORITY_SPACE );
+                "add 'new task' -/tag", Tag.MESSAGE_TAG_CONSTRAINTS);
         assertCommandBehavior(
         		"add new task", Messages.MESSAGE_ENCAPSULATE_DETAIL_WARNING);
     }
@@ -314,17 +314,6 @@ public class LogicManagerTest {
      */
     class TestDataHelper{
 
-        Task adam() throws Exception {
-        	Detail detail = new Detail("Complete test task 1");
-        	DueByDate dbd = new DueByDate(LocalDate.now().plusDays(2));
-        	DueByTime dbt = new DueByTime(LocalTime.of(12,00));
-        	Priority priority = new Priority(Priority.LOW);
-            Tag tag1 = new Tag("tag1");
-            Tag tag2 = new Tag("tag2");
-            UniqueTagList tags = new UniqueTagList(tag1, tag2);
-            return new Task(detail, dbd, dbt, priority, tags);
-        }
-
         /**
          * Generates a valid task using the given seed.
          * Running this function with the same parameter values guarantees the returned task will have the same state.
@@ -340,34 +329,6 @@ public class LogicManagerTest {
                     new Priority((seed%3 == 0) ? Priority.HIGH : (seed%3 == 1) ? Priority.MEDIUM : Priority.LOW),
                     new UniqueTagList(new Tag("tag" + Math.abs(seed)), new Tag("tag" + Math.abs(seed + 1)))
             );
-        }
-
-        /** Generates the correct add command based on the task given */
-        String generateAddCommand(Task p) {
-            StringBuffer cmd = new StringBuffer();
-
-            cmd.append("add ");
-
-            cmd.append("'" + p.getDetail().toString() + "'");
-            cmd.append(" ").append(p.getDueByDate().getFriendlyString());
-            cmd.append(" at ").append(p.getDueByTime().getFriendlyString());
-            cmd.append(" /").append(p.getPriority());
-
-            UniqueTagList tags = p.getTags();
-            for(Tag t: tags){
-                cmd.append(" -").append(t.tagName);
-            }
-
-            return cmd.toString();
-        }
-
-        /**
-         * Generates an ToDoList with auto-generated tasks.
-         */
-        ToDoList generateToDoList(int numGenerated) throws Exception{
-            ToDoList toDoList = new ToDoList();
-            addToToDoList(toDoList, numGenerated);
-            return toDoList;
         }
 
         /**

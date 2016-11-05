@@ -16,8 +16,6 @@ public class RedoCommand extends Command {
 
     public static final String MESSAGE_REDO_SUCCESS = "Redone!";
 	
-	public RedoCommand() {}
-
 	@Override
 	public CommandResult execute() {		
 		try {

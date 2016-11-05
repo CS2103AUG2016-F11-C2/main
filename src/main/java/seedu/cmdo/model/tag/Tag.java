@@ -14,8 +14,7 @@ public class Tag {
 
     public String tagName;
 
-    public Tag() {
-    }
+    public Tag() {}
 
     /**
      * Validates given tag name.

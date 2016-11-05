@@ -1,9 +1,5 @@
 package seedu.cmdo.ui;
 
-import java.time.YearMonth;
-
-import java.util.logging.Logger;
-
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -12,11 +8,9 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import jfxtras.scene.control.CalendarPicker;
 import javafx.stage.Stage;
 import seedu.cmdo.commons.core.Config;
 import seedu.cmdo.commons.core.GuiSettings;
-import seedu.cmdo.commons.core.LogsCenter;
 import seedu.cmdo.commons.events.ui.ExitAppRequestEvent;
 import seedu.cmdo.logic.Logic;
 import seedu.cmdo.model.UserPrefs;
@@ -67,13 +61,6 @@ public class MainWindow extends UiPart {
     @FXML
     private ScrollPane taskScrollPane;
     
-    private Logger logger = LogsCenter.getLogger(MainWindow.class);
-
-
-    public MainWindow() {
-        super();
-    }
-
     @Override
     public void setNode(Node node) {
         rootLayout = (VBox) node;
@@ -104,10 +91,6 @@ public class MainWindow extends UiPart {
         setWindowDefaultSize(prefs);
         scene = new Scene(rootLayout);       
         primaryStage.setScene(scene);
-        
-       
-//        scene.getStylesheets().add("Labels.css");
-        
         setAccelerators();
     }
 
