@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<cmdo>
+    <tasks>
+        <detail>Revise for test</detail>
+        <done>false</done>
+        <dueByDate>2016-11-12</dueByDate>
+        <dueByTime>21:46</dueByTime>
+        <priority>high</priority>
+        <block>false</block>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <detail>Bring Mummy to the clinic</detail>
+        <done>false</done>
+        <dueByDate>2016-11-12/to/2016-11-12</dueByDate>
+        <dueByTime>09:00/to/12:00</dueByTime>
+        <priority>medium</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Cook dinner for family</detail>
+        <done>false</done>
+        <dueByDate>2016-11-13</dueByDate>
+        <dueByTime>21:47</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Annual Harry potter marathon</detail>
+        <done>false</done>
+        <dueByDate>2016-12-05</dueByDate>
+        <dueByTime>19:37</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>movie</tagged>
+    </tasks>
+    <tasks>
+        <detail>Attend bestie's sister's wedding</detail>
+        <done>false</done>
+        <dueByDate>2016-11-26/to/2016-11-26</dueByDate>
+        <dueByTime>18:00/to/21:00</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Lunch and movie with CEG friends</detail>
+        <done>false</done>
+        <dueByDate>2016-11-30</dueByDate>
+        <dueByTime>19:45</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Cook turkey for christmas</detail>
+        <done>false</done>
+        <dueByDate>2016-12-25</dueByDate>
+        <dueByTime>20:27</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Try out the new butter chicken recipe</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Donate old clothes</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>medium</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Eyrica's 21st birthday</detail>
+        <done>false</done>
+        <dueByDate>2016-12-03</dueByDate>
+        <dueByTime>20:31</dueByTime>
+        <priority>medium</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Food hunt at JB with homies</detail>
+        <done>false</done>
+        <dueByDate>2016-12-17</dueByDate>
+        <dueByTime>20:35</dueByTime>
+        <priority>medium</priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Learn new language</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Shop for nude lipsticks at sephora</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>high</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Finish up the web page and publish it</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>high</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Buy new headset</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Hibernate after finals</detail>
+        <done>false</done>
+        <dueByDate>2016-11-30/to/2016-12-03</dueByDate>
+        <dueByTime>21:00/to/09:00</dueByTime>
+        <priority></priority>
+        <block>true</block>
+    </tasks>
+    <tasks>
+        <detail>top up EZ link card</detail>
+        <done>false</done>
+        <dueByDate>2016-11-17</dueByDate>
+        <dueByTime>21:47</dueByTime>
+        <priority>medium</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>pay handphone bill</detail>
+        <done>false</done>
+        <dueByDate>2016-12-03</dueByDate>
+        <dueByTime>20:54</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Shisha at arab street with homie</detail>
+        <done>false</done>
+        <dueByDate>2016-12-13</dueByDate>
+        <dueByTime>20:57</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Go back to NYP to visit lecturers</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>book appointment at skin centre</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>high</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Make california roll</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Draw self potrait</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>CS2103 exam 2103</detail>
+        <done>false</done>
+        <dueByDate>2016-11-26/to/2016-11-26</dueByDate>
+        <dueByTime>13:00/to/15:00</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <detail>Stay at home and do nothing</detail>
+        <done>false</done>
+        <dueByDate>2016-12-07/to/2016-12-09</dueByDate>
+        <dueByTime>22:01/to/22:01</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>talk to grandma on the phone</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Bake redvelvet cup cake</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Buy Adobe creative suite</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Shop for cute stationaries</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Study for PC1222 test</detail>
+        <done>false</done>
+        <dueByDate>2016-11-08</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>high</priority>
+        <block>false</block>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <detail>Attend SPOL lecture</detail>
+        <done>false</done>
+        <dueByDate>2016-12-26/to/2016-12-26</dueByDate>
+        <dueByTime>05:00/to/08:00</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <detail>Cook Korean spicy chicken</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Update blog</detail>
+        <done>false</done>
+        <dueByDate>2016-11-14</dueByDate>
+        <dueByTime>21:47</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Tidy up room</detail>
+        <done>false</done>
+        <dueByDate>2016-11-15</dueByDate>
+        <dueByTime>21:49</dueByTime>
+        <priority>medium</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Buy presents for bro's birthday</detail>
+        <done>false</done>
+        <dueByDate>2016-11-19</dueByDate>
+        <dueByTime>21:50</dueByTime>
+        <priority>high</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Study for CS2103 exam</detail>
+        <done>false</done>
+        <dueByDate>2016-11-23</dueByDate>
+        <dueByTime>21:51</dueByTime>
+        <priority>high</priority>
+        <block>false</block>
+        <tagged>school</tagged>
+    </tasks>
+    <tasks>
+        <detail>Watch doctor who</detail>
+        <done>false</done>
+        <dueByDate>2016-11-20</dueByDate>
+        <dueByTime>21:58</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+        <tagged>movie</tagged>
+    </tasks>
+    <tasks>
+        <detail>Eat prata at bukit timah</detail>
+        <done>false</done>
+        <dueByDate>2016-12-10</dueByDate>
+        <dueByTime>12:00</dueByTime>
+        <priority>medium</priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Catch up with poly friends</detail>
+        <done>false</done>
+        <dueByDate>2016-12-10</dueByDate>
+        <dueByTime>15:00</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Try out different frosting recipe</detail>
+        <done>false</done>
+        <dueByDate>2016-12-11</dueByDate>
+        <dueByTime>22:06</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Movie marathon with homies</detail>
+        <done>false</done>
+        <dueByDate>2016-12-01</dueByDate>
+        <dueByTime>09:00/to/21:00</dueByTime>
+        <priority>high</priority>
+        <block>false</block>
+        <tagged>movies</tagged>
+    </tasks>
+    <tasks>
+        <detail>Download new movies</detail>
+        <done>false</done>
+        <dueByDate>2016-12-14</dueByDate>
+        <dueByTime>22:10</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Bake caramel cupcake with buttercream frosting</detail>
+        <done>false</done>
+        <dueByDate>2016-12-16</dueByDate>
+        <dueByTime>15:00</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Sleepover with the girls</detail>
+        <done>false</done>
+        <dueByDate>2016-12-18/to/2016-12-19</dueByDate>
+        <dueByTime>21:00/to/18:00</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Try out the food at the new NYP food court</detail>
+        <done>false</done>
+        <dueByDate>2016-12-26</dueByDate>
+        <dueByTime>22:24</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Spend time at cat cafe</detail>
+        <done>false</done>
+        <dueByDate>2016-12-27</dueByDate>
+        <dueByTime>14:00</dueByTime>
+        <priority>medium</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Spring cleaning</detail>
+        <done>false</done>
+        <dueByDate>2016-12-12</dueByDate>
+        <dueByTime>16:00</dueByTime>
+        <priority></priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>Try out cheesy onion ring from tastemade</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>food</tagged>
+    </tasks>
+    <tasks>
+        <detail>Tidy up wardrobe</detail>
+        <done>false</done>
+        <dueByDate>+999999999-12-31</dueByDate>
+        <dueByTime>23:59:59.999999999</dueByTime>
+        <priority>low</priority>
+        <block>false</block>
+    </tasks>
+    <tasks>
+        <detail>EE2020 project demo</detail>
+        <done>true</done>
+        <dueByDate>2016-11-07/to/2016-11-07</dueByDate>
+        <dueByTime>14:00/to/14:25</dueByTime>
+        <priority></priority>
+        <block>false</block>
+        <tagged>school</tagged>
+    </tasks>
+    <tags>
+        <tagName>school</tagName>
+    </tags>
+    <tags>
+        <tagName>movie</tagName>
+    </tags>
+    <tags>
+        <tagName>food</tagName>
+    </tags>
+    <tags>
+        <tagName>movies</tagName>
+    </tags>
+</cmdo>
