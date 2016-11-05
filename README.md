@@ -4,9 +4,9 @@
 
 # CMDo
 
-<img src="docs/images/Ui.jpeg" width="600"><br>
 <img src="docs/images/Main.jpeg" width="600"><br>
 
+CMDO is a keyboard-based task manager which helps you make task management simpler.
   
 #### Site Map
 * [User Guide](docs/UserGuide.md) 
