@@ -29,12 +29,12 @@ import seedu.cmdo.model.task.ReadOnlyTask;
 public class TaskCard extends UiPart{
 
     private static final String FXML = "TaskListCard.fxml";
-    private static final String DEADLINE_SOON = "/images/duesoon.png";
     private static final String TOMORROW = "/images/tomorrow.png";
     private static final String OVERDUE = "/images/overdue.png";
     private static final String FLOATING = "/images/floating.png";
     private static final String TODAY = "/images/today.png";
     private static final String THISWEEK = "/images/thisweek.png";
+    private static final String NEXTTIME = "/images/nexttime.png";
     
 
     @FXML
@@ -144,8 +144,7 @@ public class TaskCard extends UiPart{
 
 	private void setStatus() {
     	//Images for status
-    	Image deadlineSoon = new Image(DEADLINE_SOON);
-    	Image chill = new Image(TOMORROW);
+    	Image chill = new Image(NEXTTIME);
     	Image overdue = new Image (OVERDUE);
     	Image floating = new Image (FLOATING);
     	Image today = new Image(TODAY);
@@ -156,7 +155,7 @@ public class TaskCard extends UiPart{
     	if(task.getDueByDate().start.isEqual(LocalDate.now())){
     		status.setFill(new ImagePattern(today));
 		} else if(task.getDueByDate().start.isBefore(LocalDate.now().plusDays(2)) 
-        			&& task.getDueByDate().start.isAfter(LocalDate.now().plusDays(0))) {
+        			&& task.getDueByDate().start.isAfter(LocalDate.now())) {
         		status.setFill(new ImagePattern(tomorrow));	
     	} else if(task.getDueByDate().start.isBefore(LocalDate.now().plusDays(7)) 
     			&& task.getDueByDate().start.isAfter(LocalDate.now().plusDays(1))) {
