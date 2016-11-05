@@ -18,10 +18,6 @@ public class Config {
     private String toDoListFilePath = "data/cmdo.xml";
     private String toDoListName = "MyToDoList";
 
-
-    public Config() {
-    }
-
     public String getAppTitle() {
         return APPTITLE;
     }

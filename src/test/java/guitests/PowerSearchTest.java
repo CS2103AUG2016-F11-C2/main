@@ -1,11 +1,11 @@
 package guitests;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import seedu.cmdo.commons.core.Messages;
 import seedu.cmdo.testutil.TestTask;
-
-import static org.junit.Assert.assertTrue;
 
 //@@author A0141006B
 public class PowerSearchTest extends ToDoListGuiTest {
@@ -14,28 +14,28 @@ public class PowerSearchTest extends ToDoListGuiTest {
     public void find() {
         
     	String keyWord = "Mark";
-    	assertFindResult("find " + keyWord, keyWord); //no results
+    	assertFindResult("find " + keyWord); //no results
     	
     	//80% match
     	keyWord = "ga";
-        assertFindResult("find " + keyWord, keyWord, td.car, td.zika); //multiple results
+        assertFindResult("find " + keyWord, td.car, td.zika); //multiple results
         
         //60% match
         keyWord = "pai";
-        assertFindResult("find " + keyWord, keyWord, td.house);
+        assertFindResult("find " + keyWord, td.house);
         
         //less than 60% match
         keyWord = "pa";
-        assertFindResult("find " + keyWord, keyWord);
+        assertFindResult("find " + keyWord);
         
         //find after deleting one result
         runCommand("list all");
         runCommand("delete 1");
         keyWord = "mosquit";
-        assertFindResult("find " + keyWord, keyWord,td.zika);
+        assertFindResult("find " + keyWord,td.zika);
         
         runCommand("clear");
-        assertFindResult("find " + keyWord, keyWord); //no results
+        assertFindResult("find " + keyWord); //no results
 
         runCommand("findgeorge");
         assertResultMessage(Messages.MESSAGE_UNKNOWN_COMMAND);
@@ -53,7 +53,7 @@ public class PowerSearchTest extends ToDoListGuiTest {
     	assertTrue(taskListPanel.isListMatching(expectedHits));
     }
     
-    private void assertFindResult(String command, String keyWord, TestTask... expectedHits ) {
+    private void assertFindResult(String command, TestTask... expectedHits ) {
         runCommand(command);
         checkListSize(expectedHits);
         checkList(expectedHits);

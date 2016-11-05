@@ -125,9 +125,7 @@ public class EditCommand extends Command {
         	toEditWith.setFloating();
         // check if the user only meant to key in only one of either date or time
         else if (onlyOne) {
-        	if (toEditWith.getDueByDate().dateNotEntered() && toEditWith.getDueByTime().timeNotEntered()) {
-        		// The user accidentally typed in only. Ignore.
-        	} else if (toEditWith.getDueByDate().dateNotEntered()) {
+        	if (toEditWith.getDueByDate().dateNotEntered()) {
         		// The user used time only, so he must mean today's time.
         		toEditWith.setDueByDate(new DueByDate(LocalDate.now()));
         	} else if (toEditWith.getDueByTime().timeNotEntered()) {
