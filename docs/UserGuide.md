@@ -28,30 +28,30 @@ Thanks for using CMDo! Let's get started right away.
 2. Tasks are coded as follows
 
     #### Text Color
-    <img src="images/UGTextColorBlack.png" width="300"><br>
+    <img src="images/UGTextColorBlack.png" width="30"><br>
     Black: Regular tasks
     
-    <img src="images/UGTextColorRed.png" width="300"><br>
+    <img src="images/UGTextColorRed.png" width="30"><br>
     Red: Overdue tasks
 
     #### Icon
-    <img src="images/today.png" width="100"><br>
-    <img src="images/tomorrow.png" width="100"><br>
-    <img src="images/thisweek.png" width="100"><br>
-    <img src="images/nexttime.png" width="100"><br>
-    <img src="images/floating.png" width="100"><br>
-    <img src="images/duesoon.png" width="100"><br>
-    <img src="images/overdue.png" width="100"><br>
+    <img src="images/today.png" width="50"><br>
+    <img src="images/tomorrow.png" width="50"><br>
+    <img src="images/thisweek.png" width="50"><br>
+    <img src="images/nexttime.png" width="50"><br>
+    <img src="images/floating.png" width="50"><br>
+    <img src="images/duesoon.png" width="50"><br>
+    <img src="images/overdue.png" width="50"><br>
 
-    Blocked tasks
-    <img src="images/blocked.png" width="100"><br>
-    Done tasks
-    <img src="images/done.png" width="100"><br>
+    Blocked tasks<br>
+    <img src="images/blocked.png" width="50"><br>
+    Done tasks<br>
+    <img src="images/done.png" width="50"><br>
     
 3. Calendar
     Displays from year ### to year #### so you can use CMDo your whole life :) (Rather, you are able to have a quick glance at the months ahead of you)
 
-    <img src="images/done.png" width="300"><br>
+    <img src="images/calendar.png" width="300"><br>
 
 4. Side bar
     Displays cateregories of task with a counter at the side of the number of tasks for each category.
