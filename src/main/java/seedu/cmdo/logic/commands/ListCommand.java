@@ -26,15 +26,23 @@ public class ListCommand extends Command {
     	this.type = type;
     }
 
+    /** Takes in index 0, 1 or 2 to the List Command based on what the user wants.
+     * 0: not done (all)
+     * 1: done tasks
+     * 2: blocked tasks 
+     */
     @Override
     public CommandResult execute() {
     	if (type == 0)
     		model.updateFilteredListToShowAll(false);
     	else if (type == 1) {
         	model.updateFilteredListToShowAll(true);
-    		return new CommandResult(getMessageForDoneTaskListShownSummary(model.getFilteredTaskList().size()));
-        } else if (type == 2)
-        	model.updateFilteredListToShowBlocked();
+    		return new CommandResult(getMessageForDoneTaskListShownSummary(
+    				model.getFilteredTaskList().size()));
+        } else if (type == 2) {
+			model.updateFilteredListToShowBlocked();
+        	return new CommandResult(getMessageForBlockedTaskListShownSummary());
+        }
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

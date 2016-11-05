@@ -38,6 +38,17 @@ public abstract class Command {
         return String.format(Messages.MESSAGE_DONE_TASKS_LISTED_OVERVIEW, displaySize);
     }
     
+    //@@author A0139661Y
+    /**
+     * Constructs a feedback message to summarise an operation that displayed a listing of blocked tasks only.
+     *
+     * @param displaySize used to generate summary
+     * @return summary message for persons displayed
+     */
+    public static String getMessageForBlockedTaskListShownSummary() {
+        return Messages.MESSAGE_BLOCKED_TASKS_LISTED_OVERVIEW;
+    }
+    
     /**
      * Constructs a feedback message to summarise an operation that displayed finding of tasks.
      *
