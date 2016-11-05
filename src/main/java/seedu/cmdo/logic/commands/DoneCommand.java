@@ -11,8 +11,9 @@ import seedu.cmdo.model.task.UniqueTaskList.TaskNotFoundException;
 
 //@@author A0141128R
 /*
- * need to to add a task done list and need to store the task that is done
- */
+ * Marks a task as done, identified using it's last displayed index from CMDo.
+ * The task is then only displayed in the done list and not shown in the general list
+*/
 
 public class DoneCommand extends Command {
 

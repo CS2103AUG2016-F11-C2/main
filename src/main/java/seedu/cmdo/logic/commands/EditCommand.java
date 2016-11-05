@@ -23,7 +23,7 @@ import seedu.cmdo.model.task.UniqueTaskList.TaskNotFoundException;
 //@@author A0141128R
 /**
  * Edits the task associated with the intended index.
- */
+**/
 public class EditCommand extends Command {
 	public static final LocalDate NO_DATE_DEFAULT = LocalDate.MAX;	// All floating tasks are giving this date.
 	public static final LocalTime NO_TIME_DEFAULT = LocalTime.MAX;	// All timeless tasks are given this time.
@@ -169,6 +169,7 @@ public class EditCommand extends Command {
     		  toEditWith.setTags(taskToEdit.getTags()); 
     }
     
+    //updates the task StartLdt variable to facilitate in sorting of tasks in the list
     public void editStartLdt() {
     	
     	LocalDate ld = toEditWith.getDueByDate().start;
