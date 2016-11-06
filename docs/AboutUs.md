@@ -19,7 +19,8 @@ We are a team F11-C2, a CS2103 team based in [School of Computing, National Univ
 * Other major contributions:
     * Did up the user guide
     * Did up the developer guide
-    * Wrote all the test codes except the AddCommandTest
+    * Wrote most of the test codes
+    * Co-ordinate the direction of the team
 
 -----
 
@@ -32,7 +33,6 @@ We are a team F11-C2, a CS2103 team based in [School of Computing, National Univ
     * Add tasks
     * Find tasks (Fuzzy Search)
     * List tasks by all/done
-    * Change file storage
     * Undo
 * Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0139661Y.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0139661Y.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0139661Y.md)]
 * Other major contributions:
@@ -60,6 +60,7 @@ We are a team F11-C2, a CS2103 team based in [School of Computing, National Univ
 * Aspects/tools in charge of: Design
 * Features implemented:
     * Help
+    * Change file storage
     * Redo
 * Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141006B.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141006B.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141006B.md)]
 * Other major contributions:
