@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import guitests.guihandles.HelpWindowHandle;
 
+//@@author A0141128R
+
 public class HelpWindowTest extends ToDoListGuiTest {
 
     @Test
