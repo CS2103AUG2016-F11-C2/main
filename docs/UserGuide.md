@@ -84,25 +84,25 @@ add 'give me some money' tmr                          # floating time
 add 'give me'                                         # floating
 
 # Events
-add 'give me some sugar' from tmr to 10/31/2016     # you get the idea
+add 'give me some sugar' from tmr to 10/31/2016       # you get the idea
 ```
 
 ## `block` time slots #LikeABoss
 
 You may block off time slots to prevent conflicting tasks. Tasks may not be added to the blocked date/time range.
 ```
-block 'CS2103 exam' tmr               # entirety of tomorrow is blocked, no tasks may be added inclusive of tomorrow
-block 'CS2103 tutorial' from 11am to 12pm     # 11am - 12pm today is blocked, no tasks may be added inclusive of the time range
-block 'visit Bolivia' at 11am           # 11am - 12pm (1h enforced) today is blocked
+block 'CS2103 exam' tmr                           # entirety of tomorrow is blocked, no tasks may be added inclusive of tomorrow
+block 'CS2103 tutorial' from 11am to 12pm         # 11am - 12pm today is blocked, no tasks may be added inclusive of the time range
+block 'visit Bolivia' at 11am                     # 11am - 12pm (1h enforced) today is blocked
 block 'night of fun' from 10/31 11pm to 11/1 6pm  # 11pm (10/31) - 6pm (11/1) is blocked.
-block 12pm                      # impossible. Secret mission? Give it a name at least.
+block 12pm                                        # impossible. Secret mission? Give it a name at least.
 ```
 
 ## `done`? Mark them and get on with your life
 
 You may mark a task as `done` at anytime. All you need is the index that the task has on the list.
 ```
-done 1                                              # all done with task 1 (on list)
+done 1                                  # all done with task 1 (on list)
 done give me some                       # invalid
 ```
 Does it make sense to mark a done task as done? No, so don't do it.
@@ -114,20 +114,20 @@ You may edit tasks by first keying in the index of the task in the [list](#List 
 edit 1 'new name'                 # changes the detail
 edit 2 -new tag                   # replaces all tags with `-new` 
 edit 3 /medium                    # changes the priority to `medium`
-edit 4 tmr at noon                          # relative date and time
-edit 1                                              # actually impossible.
+edit 4 tmr at noon                # relative date and time
+edit 1                            # actually impossible.
 ```
 
 ## `find` tasks with Power Search (wow)
 
 Are you a goldfish who has about 1,384,103 things to do on your list? You may find tasks using specific keywords! (Add `--done` to search through done tasks)
 ```
-find word                                           # pulls up undone tasks with 'word' in their detail or tag
+find word                     # pulls up undone tasks with 'word' in their detail or tag
 find high                     # pulls up undone tasks with 'high' in their priority, detail or tag
-find tmr 1300                   # pulls up undone tasks with tomorrow's date, 1300 in their date/time parameters 
-                          # or 'tmr 1300' in their detail or tag
-find --done keyword                                 # pulls up done tasks with 'keyword' in their detail
-find my keys                                        # no we don't do that sort of thing
+find tmr 1300                 # pulls up undone tasks with tomorrow's date, 1300 in their date/time parameters 
+                                # or 'tmr 1300' in their detail or tag
+find --done keyword           # pulls up done tasks with 'keyword' in their detail
+find my keys                  # no we don't do that sort of thing
 
 \# Do note todolist understands your spelling errors/ambiguity and will pull out similar tasks for you. 
 ```
@@ -143,7 +143,7 @@ la
 list done                                           # lists all done tasks
 ld
 
-list block                                      # lists all blocked timeslots
+list block                                          # lists all blocked timeslots
 lb
 
 ls                                                  # woah woah woah, what are you thinking?
@@ -153,10 +153,10 @@ ls                                                  # woah woah woah, what are y
 
 You may change the storage file `cmdo.xml`'s location as an when you like.
 ```
-storage                       # defaults to location data/
+storage                                 # defaults to location data/
 storage data/test/cmdo.xml              # valid
-storage anywhere/cmdo.xml             # valid
-storage anywhere                  # valid (!)
+storage anywhere/cmdo.xml               # valid
+storage anywhere                        # valid (!)
 ```
 
 ## `undo` and `redo` your last action
@@ -172,7 +172,7 @@ redo                        # redoes one step
 You can navigate through CMDo by typing!
 ```
 up
-u                         # move up
+u                           # move up
 down
 d                           # move down
 top
