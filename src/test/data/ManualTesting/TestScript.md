@@ -34,7 +34,7 @@ Adds a new task. Tasks have
 - multiple [tags]
 ```
 add new task                         # "Encapsulate your details in ' '"
-add ``                               # "Blank task? Did you mean to block out a date? Type help to see usage."
+add ''                               # "Blank task? Did you mean to block out a date? Type help to see usage."
 add 'hershey's hersh'                # Adds a task 'hershey's hersh'
 add 'date' 10/31/2016                # Adds a task 'date' due on 10/31/2016
 add 'time' 1300                      # Adds a task 'time' due today at 1pm
@@ -159,8 +159,11 @@ To edit
             edit 5 11/4 2301 to 11/5 2pm       # '12pm' has date 11/4/2016 2301 to 11/5/2016 1400
             ```
 
+        - To completely remove all date/time parameters and make the task floating, type in `floating`
+
 - Priority
     - Use a `/` before the desired priority
+    - If no priority, use `no priority`
 - Tags
     - Use a `-` before the desired tag.
     - All other tags get overwritten. Be careful!
@@ -242,5 +245,5 @@ Go to `/data/` and check `CMDo.xml`. You should see that task 'blah' has been ad
 Thank you for being a part of the testing for CMDo. The current version you are testing is v0.5. If you have any suggestions or feedback, please email us at justin@catharsys.co.
 
 ===
-_Last updated Nov 5, 2016_
+_Last updated Nov 7, 2016_
 
