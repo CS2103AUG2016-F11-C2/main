@@ -11,7 +11,8 @@ Welcome, tester. We are happy to have you on board the CMDo team. Here are some 
 4. Download `SampleData.xml` from the directory `\src\test\data\ManualTesting\` into `data`.
 5. Rename `SampleData.xml` to `cmdo.xml`.
 6. Run the application. You are now ready to begin testing!
-7. _Optional:_ If you decide to change the name of the folder `data`, to, say `DropBox`, you must also let CMDo know. In `CMDo`, type in 
+7. We recommend that you perform the tests in the order listed so that we fit in our assumptions well. (i.e. `delete 1` when there is nothing at index 1 returns a different outcome) If you do so, set your system time and date to **Nov 5, 2016, 9pm.**
+8. _Optional:_ If you decide to change the name of the folder `data`, to, say `DropBox`, you must also let CMDo know. In `CMDo`, type in 
     ```
     storage DropBox
     ```
@@ -22,8 +23,6 @@ Welcome, tester. We are happy to have you on board the CMDo team. Here are some 
 CMDo hosts a couple of interesting features that we need you to help test.
 
 We have provided some sample test cases which you can start with. The input and expected output at the result display box below the command box are provided for your reference.
-
-We recommend that you perform the tests in the order listed so that we fit in our assumptions well. (i.e. `delete 1` when there is nothing at index 1 returns a different outcome) If you do so, set your system time and date to **Nov 5, 2016, 9pm.**
 
 #### _**!! Please note that CMDo runs on date input format MM/DD/YYYY !!**_
 
