@@ -5,13 +5,13 @@
 Welcome, tester. We are happy to have you on board the CMDo team. Here are some instructions to get you started.
 
 ## Setup
-1) Download `[F11-C2][CMDo-v0.5].jar` from the Releases page.
-2) On first run, the folder `data` is created where the JAR file is run. It contains storage file `cmdo.xml`. This is the default storage file name. All storage files must have this name. You are free to rename the folder `data` to whatever you want, see step 7 for more)
-3) Quit the application by typing in `exit` and delete `cmdo.xml`.
-4) Download `SampleData.xml` from the directory `\src\test\data\ManualTesting\` into `data`.
-5) Rename `SampleData.xml` to `cmdo.xml`.
-6) Run the application. You are now ready to begin testing!
-7) _Optional:_ If you decide to change the name of the folder `data`, to, say `DropBox`, you must also let CMDo know. In `CMDo`, type in 
+1. Download `[F11-C2][CMDo-v0.5].jar` from the Releases page.
+2. On first run, the folder `data` is created where the JAR file is run. It contains storage file `cmdo.xml`. This is the default storage file name. All storage files must have this name. You are free to rename the folder `data` to whatever you want, see step 7 for more)
+3. Quit the application by typing in `exit` and delete `cmdo.xml`.
+4. Download `SampleData.xml` from the directory `\src\test\data\ManualTesting\` into `data`.
+5. Rename `SampleData.xml` to `cmdo.xml`.
+6. Run the application. You are now ready to begin testing!
+7. _Optional:_ If you decide to change the name of the folder `data`, to, say `DropBox`, you must also let CMDo know. In `CMDo`, type in 
     ```
     storage DropBox
     ```
