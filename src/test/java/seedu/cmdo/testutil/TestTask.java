@@ -143,6 +143,12 @@ public class TestTask implements ReadOnlyTask, Comparable {
 	@Override
 	public int compareTo(Object o) {
 		assert o != null;
+		// Ensure done tasks are always last
+		if (this.checkDone().value) {
+			return 1;
+		} if (((TestTask)o).checkDone().value) {
+			return -1;
+		}
 		int i = this.getStartLdt().compareTo(((TestTask) o).getStartLdt());
     	if (i != 0) return i;
     	return this.getDetail().toString().compareToIgnoreCase(((TestTask)o).getDetail().toString());

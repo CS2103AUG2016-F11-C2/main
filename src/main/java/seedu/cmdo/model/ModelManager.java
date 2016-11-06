@@ -149,12 +149,7 @@ public class ModelManager extends ComponentManager implements Model {
     //@@author A0141006B
     private int findTaskInModel(Task toFind) {
     	ObservableList<Task> tdl = toDoList.getTasks();
-    	for (int i=0; i<tdl.size(); i++) {
-    		if (tdl.get(i).id.equals(toFind.id)) {
-    			return i;
-    		}
-    	}
-    	return -1;
+    	return tdl.indexOf(toFind);
     }
 
     //=========== Filtered Task List Accessors ===============================================================

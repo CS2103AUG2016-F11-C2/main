@@ -216,8 +216,15 @@ public class Task implements ReadOnlyTask, Comparable {
 	//@@author A0139661Y
 	@Override
 	public int compareTo(Object o) {
+		// Ensure done tasks are always last
+		if (this.checkDone().value) {
+			return 1;
+		} if (((Task)o).checkDone().value) {
+			return -1;
+		}
 		int i = this.getStartLdt().compareTo(((Task) o).getStartLdt());
-    	if (i != 0) return i;
+    	if (i != 0) 
+    		return i;
     	return this.getDetail().toString().compareToIgnoreCase(((Task)o).getDetail().toString());
 	}
 }
