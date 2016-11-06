@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/CS2103AUG2016-F11-C2/main.svg?branch=master)](https://travis-ci.org/CS2103AUG2016-F11-C2/main)
-[![Coverage Status](https://coveralls.io/repos/github/CS2103AUG2016-F11-C2/main/badge.svg?branch=master)](https://coveralls.io/github/CS2103AUG2016-F11-C2/main?branch=master)
+[![Build Status](https://travis-ci.org/CS2103AUG2016-F11-C2/main.svg)](https://travis-ci.org/CS2103AUG2016-F11-C2/main)
+[![Coverage Status](https://coveralls.io/repos/github/CS2103AUG2016-F11-C2/main/badge.svg)](https://coveralls.io/github/CS2103AUG2016-F11-C2/main?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/411e48d9591e4bcd8ff9c27be86db219)](https://www.codacy.com/app/njyjustin/main?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CS2103AUG2016-F11-C2/main&amp;utm_campaign=Badge_Grade)
 
 # CMDo
@@ -11,7 +11,6 @@ CMDO is a keyboard-based task manager which helps you make task management simpl
 #### Site Map
 * [User Guide](docs/UserGuide.md) 
 * [Developer Guide](docs/DeveloperGuide.md) 
-* [Learning Outcomes](docs/LearningOutcomes.md) 
 * [About Us](docs/AboutUs.md)
 * [Contact Us](docs/ContactUs.md)
 
@@ -19,6 +18,6 @@ CMDO is a keyboard-based task manager which helps you make task management simpl
 #### Acknowledgements
 * [Natty](https://github.com/joestelmach/natty), a natural language date parser written in Java by [Joe Stelmach](https://github.com/joestelmach/).
 * [jfxtras](https:/jfxtras.org) for date and time pickers.
-
+* [Team Triads](https://github.com/cs2103aug2014-t15-3j/main) for Leveshtein distance algorithm.
 
 #### Licence : [MIT](LICENSE)
