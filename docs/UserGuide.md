@@ -183,44 +183,44 @@ b                           # teleport to the bottom of the list
 
 ## FAQ
 
-**Q**: How do I transfer my data to another Computer?
+**Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with 
        the file that contains the data of your previous Address Book.
        
-**Q**: Is there a click function? 
+**Q**: Is there a click function?<br>
 **A**: No
 
-**Q**: How do i customize the functions and commands to suit my style?
+**Q**: How do i customize the functions and commands to suit my style?<br>
 **A**: We will have in the next version :)
 
-**Q**: Can i change the layout?
+**Q**: Can i change the layout?<br>
 **A**:  We will have in the next version :)
 
-**Q**: How do i set priority to a task?
+**Q**: How do i set priority to a task?<br>
 **A**: add priority under tags eg.(H for high, M for medium, L for low)
 
-**Q**: Is there a cheat sheet for the commands?
+**Q**: Is there a cheat sheet for the commands?<br>
 **A**: `/help`
 
-**Q**: Do I have to check my to-do list regularly, is there something to remind me?
+**Q**: Do I have to check my to-do list regularly, is there something to remind me?<br>
 **A**: You have to check your to-do list, isnt that the point?
 
-**Q**: How do i block out slots for unconfirmed tasks?
+**Q**: How do i block out slots for unconfirmed tasks?<br>
 **A**: just key in the timming after the task description.
 
-**Q**: How do i see upcoming tasks?
+**Q**: How do i see upcoming tasks?<br>
 **A**: The list will be sorted according to date and time
 
-**Q**: What do I do with overdue tasks?
+**Q**: What do I do with overdue tasks?<br>
 **A**: You can either delete them or done them.
 
-**Q**: Why CMDo doesnt just remove my overdue tasks automatically?
+**Q**: Why CMDo doesnt just remove my overdue tasks automatically?<br>
 **A**: We take into account the fact that you may have been unable to complete it by the set due date but would still need to do so it serves as a reminder.
 
-**Q**: How to scroll?
+**Q**: How do scroll up or down the list?<br>
 **A**: Use the page up and page down commands, alternatively, use top and bottom commands to for quick access to the top or bottom of the list!
 
-**Q**: This is an interesting product, would I be able to contribute?
+**Q**: This is an interesting product, would I be able to contribute?<br>
 **A**: We are open source so feel free to contact us or submit contributions via pull requests!
        
 ## Command Summary
