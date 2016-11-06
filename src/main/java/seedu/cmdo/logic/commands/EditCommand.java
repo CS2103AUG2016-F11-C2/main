@@ -109,60 +109,69 @@ public class EditCommand extends Command {
         this.onlyOne = false;
     }
     
-    public ReadOnlyTask getTask() {
-        return toEditWith;
-    }
-    
-    //check for changes in detail and append
-    public void editDetails(ReadOnlyTask taskToEdit){
-        if(toEditWith.getDetail().toString().equals(""))
-        	toEditWith.setDetail(taskToEdit.getDetail());
-        }
-    //check for changes in date and time and append
-    public void editDateTime(ReadOnlyTask taskToEdit){
-    	try {//check if changing to floating task
-        if(floating)
-        	toEditWith.setFloating();
-        // check if the user only meant to key in only one of either date or time
-        else if (onlyOne) {
-        	if (toEditWith.getDueByDate().dateNotEntered()) {
-        		// The user used time only, so he must mean today's time.
-        		toEditWith.setDueByDate(new DueByDate(LocalDate.now()));
-        	} else if (toEditWith.getDueByTime().timeNotEntered()) {
-        		// The user used date only, so he must mean one single date only.
-        		toEditWith.setDueByTime(new DueByTime(MainParser.NO_TIME_DEFAULT));
-        	}
-        }
-        //check for if time is empty and append and check if have changes in date otherwise append old date
-        else{
-        if(toEditWith.getDueByDate().dateNotEntered() && toEditWith.getDueByTime().timeNotEntered()){
-        	toEditWith.setDueByDate(taskToEdit.getDueByDate());
-        	toEditWith.setDueByTime(taskToEdit.getDueByTime());
-        	}
-        //time entered only
-        //but if single date and time is entered, it bypass the check and fails
-        else if(!(toEditWith.getDueByTime().timeNotEntered()) && !(toEditWith.getDueByDate().isRange())){
-        	toEditWith.setDueByDate(taskToEdit.getDueByDate());
-        	}
-        //date entered only
-        else if(!(toEditWith.getDueByDate().dateNotEntered()) && toEditWith.getDueByTime().timeNotEntered()){
-        	toEditWith.setDueByTime(taskToEdit.getDueByTime());
-        			}
-        }
-    	}catch (Exception e) {
-    		// This is an internal method, no exception should be thrown.
-    	}
-    }
+	public ReadOnlyTask getTask() {
+		return toEditWith;
+	}
+
+	// check for changes in detail and append
+	public void editDetails(ReadOnlyTask taskToEdit) {
+		if (toEditWith.getDetail().toString().equals(""))
+			toEditWith.setDetail(taskToEdit.getDetail());
+	}
+
+	// check for changes in date and time and append
+	public void editDateTime(ReadOnlyTask taskToEdit) {
+		try {
+
+			// check if changing to floating task
+			if (floating)
+				toEditWith.setFloating();
+
+			// check if the user only meant to key in only one of either date or
+			// time
+			else if (onlyOne) {
+				if (toEditWith.getDueByDate().dateNotEntered()) {
+					// The user used time only, so he must mean today's time.
+					toEditWith.setDueByDate(new DueByDate(LocalDate.now()));
+				} else if (toEditWith.getDueByTime().timeNotEntered()) {
+					// The user used date only, so he must mean one single date
+					// only.
+					toEditWith.setDueByTime(new DueByTime(MainParser.NO_TIME_DEFAULT));
+				}
+			}
+
+			// check for changes in date and time and otherwise append
+			else {
+				// Both date and time not entered
+				if (toEditWith.getDueByDate().dateNotEntered() && toEditWith.getDueByTime().timeNotEntered()) {
+					toEditWith.setDueByDate(taskToEdit.getDueByDate());
+					toEditWith.setDueByTime(taskToEdit.getDueByTime());
+				}
+				// time entered only
+				// but if single date and time is entered, it bypass the check
+				// and fails
+				else if (!(toEditWith.getDueByTime().timeNotEntered()) && !(toEditWith.getDueByDate().isRange())) {
+					toEditWith.setDueByDate(taskToEdit.getDueByDate());
+				}
+				// date entered only
+				else if (!(toEditWith.getDueByDate().dateNotEntered()) && toEditWith.getDueByTime().timeNotEntered()) {
+					toEditWith.setDueByTime(taskToEdit.getDueByTime());
+				}
+			}
+		} catch (Exception e) {
+			// This is an internal method, no exception should be thrown.
+		}
+	}
    
-    //check if priority is empty and append with old details
-    public void editPriority(ReadOnlyTask taskToEdit){
-    	if(toEditWith.getPriority().getValue().equals("")) 
-            toEditWith.getPriority().setPriority(taskToEdit.getPriority().getValue()); 
-          //remove priority 
-          if(removePriority) 
-            toEditWith.getPriority().setPriority(""); 
-    }
-    
+	// check if priority is empty and append with old details
+	public void editPriority(ReadOnlyTask taskToEdit) {
+		if (toEditWith.getPriority().getValue().equals(""))
+			toEditWith.getPriority().setPriority(taskToEdit.getPriority().getValue());
+		// remove priority
+		if (removePriority)
+			toEditWith.getPriority().setPriority("");
+	}
+
     //append tags 
     public void editTags(ReadOnlyTask taskToEdit){
     	  if(tagIsEmpty) 
@@ -185,40 +194,41 @@ public class EditCommand extends Command {
     	if(taskToEdit.getBlock())
     	toEditWith.setBlock();
     }
-    
-    @Override
-    public CommandResult execute() {
-        UnmodifiableObservableList<ReadOnlyTask> lastShownList = model.getFilteredTaskList();
-        //slap these
-        // Check if target index is valid
-        if (lastShownList.size() < targetIndex) {
-            indicateAttemptToExecuteIncorrectCommand();
-            return new CommandResult(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
-        }      
-        ReadOnlyTask taskToEdit = lastShownList.get(targetIndex - 1);
-        // Check if task is done.
-        if (taskToEdit.checkDone().value) {
-            indicateAttemptToExecuteIncorrectCommand();
-        	return new CommandResult(Messages.MESSAGE_EDIT_TASK_IS_DONE_ERROR);
-        }
-        
-        //check if it is a blocked time slot
-        checkBlock(taskToEdit);
-        //check for changes in detail and append
-        editDetails(taskToEdit);
-        //check for date and time and append
-        editDateTime(taskToEdit);
-        //check if priority is empty and append with old details
-        editPriority(taskToEdit);
-        //append tags 
-        editTags(taskToEdit);
-        //check for changes in start due by time and date
-        editStartLdt();
-        try {
-        	updateSelectionInPanel(model.editTask(taskToEdit, toEditWith));
-        } catch (TaskNotFoundException tnfe) {
-            assert false : "The target task cannot be missing";
-        }      
-    	return new CommandResult(MESSAGE_EDITED_TASK_SUCCESS);
-    }
+
+	@Override
+	public CommandResult execute() {
+		
+		UnmodifiableObservableList<ReadOnlyTask> lastShownList = model.getFilteredTaskList();
+		
+		// Check if target index is valid
+		if (lastShownList.size() < targetIndex) {
+			indicateAttemptToExecuteIncorrectCommand();
+			return new CommandResult(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
+		}
+		ReadOnlyTask taskToEdit = lastShownList.get(targetIndex - 1);
+		// Check if task is done.
+		if (taskToEdit.checkDone().value) {
+			indicateAttemptToExecuteIncorrectCommand();
+			return new CommandResult(Messages.MESSAGE_EDIT_TASK_IS_DONE_ERROR);
+		}
+
+		// check if it is a blocked time slot
+		checkBlock(taskToEdit);
+		// check for changes in detail and append
+		editDetails(taskToEdit);
+		// check for date and time and append
+		editDateTime(taskToEdit);
+		// check if priority is empty and append with old details
+		editPriority(taskToEdit);
+		// append tags
+		editTags(taskToEdit);
+		// check for changes in start due by time and date
+		editStartLdt();
+		try {
+			updateSelectionInPanel(model.editTask(taskToEdit, toEditWith));
+		} catch (TaskNotFoundException tnfe) {
+			assert false : "The target task cannot be missing";
+		}
+		return new CommandResult(MESSAGE_EDITED_TASK_SUCCESS);
+	}
 }
