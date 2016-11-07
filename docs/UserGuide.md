@@ -69,11 +69,13 @@ Thanks for using CMDo! Let's get started right away.
    * **`exit`** : exits the app
 7. Refer to the [Features](#features) section below for details of each command.<br>
 
+8. Please remember that when inputting dates into CMDo, you must do so in **MM/DD/YYYY** format. 
+
 # Features
 
 ## `add` tasks #LikeASiri
 
-You may add due-by tasks, with relative, explicit or floating date-time inputs. CMDo understands everyday language.
+You may add due-by tasks, with relative, explicit or floating date-time inputs. CMDo understands everyday language. Remember that if you are inputting dates, use the **MM/DD/(YYYY)** format.
 ```
 # Due-bys
 add 'give me some sugar' tmr at noon                  # relative date and time
@@ -89,7 +91,7 @@ add 'give me some sugar' from tmr to 10/31/2016       # you get the idea
 
 ## `block` time slots #LikeABoss
 
-You may block off time slots to prevent conflicting tasks. Tasks may not be added to the blocked date/time range.
+You may block off time slots to prevent conflicting tasks. Tasks may not be added to the blocked date/time range. Remember that if you are inputting dates, use the **MM/DD/(YYYY)** format.
 ```
 block 'CS2103 exam' tmr                           # entirety of tomorrow is blocked, no tasks may be added inclusive of tomorrow
 block 'CS2103 tutorial' from 11am to 12pm         # 11am - 12pm today is blocked, no tasks may be added inclusive of the time range
@@ -109,7 +111,7 @@ Does it make sense to mark a done task as done? No, so don't do it.
 
 ## `edit` tasks in the same way
 
-You may edit tasks by first keying in the index of the task in the [list](#List them all). Type in only the fields you are interested in changing. Be warned, in this iteration, you cannot undo an edit.
+You may edit tasks by first keying in the index of the task in the [list](#List them all). Type in only the fields you are interested in changing. Be warned, in this iteration, you cannot undo an edit. Remember that if you are inputting dates, use the **MM/DD/(YYYY)** format.
 ```
 edit 1 'new name'                 # changes the detail
 edit 2 -new tag                   # replaces all tags with `-new` 
@@ -120,7 +122,7 @@ edit 1                            # actually impossible.
 
 ## `find` tasks with Power Search (wow)
 
-Are you a goldfish who has about 1,384,103 things to do on your list? You may find tasks using specific keywords! (Add `--done` to search through done tasks)
+Are you a goldfish who has about 1,384,103 things to do on your list? You may find tasks using specific keywords! (Add `--done` to search through done tasks) Remember that if you are inputting dates, use the **MM/DD/(YYYY)** format.
 ```
 find word                     # pulls up undone tasks with 'word' in their detail or tag
 find high                     # pulls up undone tasks with 'high' in their priority, detail or tag
@@ -227,7 +229,7 @@ b                           # teleport to the bottom of the list
 
 Command | Format  
 -------- | :-------- 
-Add | `add <task> <day> <time> <priority> <tags>`
+Add | `add '<task>' <day> <time> /<priority> -<tags>`
 Delete | `delete <INDEX>`
 Done | `done <INDEX>`
 Find | `find <keyword>`
@@ -243,4 +245,4 @@ Top of list | `top`
 Bottom of list | `bottom`
 Exit | `exit`
 
-Last updated 5 Nov 2016.
+Last updated 7 Nov 2016.

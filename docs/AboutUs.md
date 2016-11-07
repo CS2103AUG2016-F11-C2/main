@@ -36,7 +36,7 @@ We are a team F11-C2, a CS2103 team based in [School of Computing, National Univ
     * Undo
 * Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/main/A0139661Y.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/test/A0139661Y.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0139661Y.md)
 * Other major contributions:
-  * Did the initial refactoring from AddressBook to ToDoList [[#]()]
+  * Did the initial refactoring from AddressBook to ToDoList
   * Set up Travis and Coveralls
   * Wrote AddCommandTest 
 
@@ -47,7 +47,7 @@ We are a team F11-C2, a CS2103 team based in [School of Computing, National Univ
 * Components in charge of: Model
 * Aspects/tools in charge of: -
 * Features implemented: -
-* Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/main/A0138471A.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/test/A0138471A.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0138471A.md)]
+* Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/main/A0138471A.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/test/A0138471A.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0138471A.md)
 * Other major contributions:
     * Refactored initial `Task` model
     * Populated XML sample data file
@@ -64,7 +64,7 @@ We are a team F11-C2, a CS2103 team based in [School of Computing, National Univ
     * Change file storage
     * Redo
     * Navigation (Up/Down/Top/Bottom)
-* Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/main/A0141006B.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/test/A0141006B.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141006B.md)]
+* Code written: [functional code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/main/A0141006B.md) | [test code](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/test/A0141006B.md) | [docs](https://github.com/CS2103AUG2016-F11-C2/main/blob/master/collated/docs/A0141006B.md)
 * Other major contributions:
     * Restructuring of the UI 
     * Advising on other implementions

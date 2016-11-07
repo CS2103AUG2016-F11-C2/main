@@ -144,7 +144,7 @@ The `Storage` component,
 
 ### Common classes
 
-Classes used by multiple components are in the `seedu.cmdo.commans` package. 
+Classes used by multiple components are in the `seedu.cmdo.commands` package. 
 
 ## Implementation
 
@@ -253,7 +253,7 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new task using natural language | add a task to CMDo
 `* * *` | user | delete a task | remove entries that I no longer need
 `* * *` | user | edit a task| edit the task by accessing the task and typing the changes
-`* * *` | user | find a task by keywords | access details of tasks quickly without having to go through the entire list
+`* * *` | user | find a task by loose keywords | access details of tasks quickly without having to go through the entire list
 `* * *` | user |only view uncompleted task in CMDo| avoid being confused by completed task that are overd| 
 `* * *` | user | my tasks sorted by due date and due time|locate urgent tasks easily | 
 `* * *` | user | remove my completed tasks| see only uncompleted tasks | 
@@ -602,7 +602,8 @@ Use case ends.
 4. Can share with another person via email.
 
 **CONS**
-1. 
+1. Messy UI, task cards are all over the place.
+2. Not enough users on the platform, hard to collaborate.
 
 ---
 ### Product 3: Windows Sticky Note
@@ -631,4 +632,4 @@ Use case ends.
 
 ---
 
-_Last updated 14 Nov 2016_
+_Last updated 7 Nov 2016_
