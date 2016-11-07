@@ -59,10 +59,8 @@ They do not have
 block new                                # "Encapsulate your details in ' '"
 block ``                                 # "Blank task? Did you mean to block out a date? Type help to see usage."
 block 'hershey's hersh'                  # "Specify a time/date range for the block."
-block 'day' 10/31/2016                   # Adds a task 'day' occupying 10/31/2016
-add 'conflict' 10/31/2016                # "Time slot blocked! Here is a list of all your blocked slots."
-block 'exam' 1300                        # Adds a task 'exam' occupying today 1pm to 2pm
 block 'wedding' tmr 1300 to 12/31 1400   # Adds a task 'wedding' occupying tomorrow 1pm to 12/31 2pm
+block 'exam' 1300                        # Adds a task 'exam' occupying today 1pm to 2pm 
 block 2300 '12pm'                        # Adds a task '12pm' occupying today 11pm to tomorrow 12am
 add 'tag' tomorrow -tag1 -tag2           # "Time slot blocked! Here is a list of all your blocked slots."
 la                                       # Shows all tasks in the list
